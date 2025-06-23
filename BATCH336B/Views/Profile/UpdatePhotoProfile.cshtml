@@ -1,0 +1,86 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model VMMProfile?;
+@{
+    Layout = null;
+}
+<div>
+    <form id="frm-update-profile" method="post" asp-controller="profile" asp-action="UpdatePhotoProfile" enctype="multipart/form-data">
+        <div class="d-flex flex-column">
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <input type="hidden" name="ModifiedBy" value="@Context.Session.GetInt32("custId")" />
+            <input type="hidden" name="ImagePath" value="@Model.ImagePath" />
+            <div class="input-group mb-3">
+                <label class="col-3 input-group-text">Image</label>
+                <input id="input-image" type="file" class="col-9 form-control" placeholder="Input Image..." aria-label="Image" name="ImageFile" value="@Model.Image"  required>
+                
+            </div>
+            <div id="err-warn-photo" class="mb-2"></div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <button type="button" class="input-group-text btn border-danger text-danger mx-3" id="btn-cancel-update-pp" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i>  Batal</button>
+            <button type="submit" class="input-group-text btn btn-success" id="btn-submit-update-pp"><i class="fa-solid fa-floppy-disk"></i>  Simpan</button>
+            <button class="btn btn-success" type="button" id="btn-loading-update-pp" disabled>
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                Loading...
+            </button>
+        </div>
+    </form>
+</div>
+
+<script>
+    $("#staticModalLabelE").html("@ViewBag.Title");
+    $("#btn-loading-update-pp").hide();
+
+    $("#frm-update-profile").validate({
+        errorLabelContainer: "#err-warn-photo",
+        
+        rules: {
+            ImageFile: {
+                "extension": "jpeg|jpg|png"
+                
+            }
+        },
+        messages: {
+            ImageFile: {
+                "required": `<p class="text-danger fst-italic px-2 m-0">*Photo Wajib di unggah!</p>`,
+                "extension": `<p class="text-danger fst-italic px-2 m-0">*Photo Wajib berekstensi jpg, jpeg, png!</p>`
+                // "filesize": `<p class="text-danger fst-italic px-2 m-0">*Photo Wajib dibawah 1mb!</p>`
+            }
+        }
+    }
+        
+    )
+
+    $("#frm-update-profile").submit(function(e){
+        // debugger;
+        e.preventDefault();
+        if ($("#frm-update-profile").valid()) {
+            $.ajax({
+                url: '/Profile/UpdatePhotoProfile',
+                type: 'post',
+                data: new FormData($("#frm-update-profile")[0]),
+                processData: false,
+                contentType: false,
+                beforeSend: function () {
+                    $("#btn-loading-update-pp").show();
+                    $("#btn-submit-update-pp").hide();
+                },
+                success: function (response) {
+                    if (response.statusCode == 200 || response.statusCode == 201) {
+                        // alert(response.message, 'info');
+                        location.reload();
+                    }
+                    else {
+                        alert(response.message);
+                    }
+                },
+                error: function (errResponse) {
+                    debugger;
+                    console.error(errResponse);
+                }
+            })
+        }
+    })
+</script>

@@ -1,0 +1,134 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<VMMMenu>
+
+<div>
+    <button onclick="openNav()" class="sidebarmenu btn btn-success text-start @(Context.Session.GetInt32("custId") == null ? "d-none" : "")" id="openSideBar"><i class="fa-solid fa-bars"></i></button>
+
+    <div class="sidebar d-none" id="mySidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()"><i class="fa-regular fa-circle-left"></i></a>
+        <br />
+        <br />
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home">
+            <img src="~/images/@(Context.Session.GetString("custRoleName") == "ADMIN" ? "adminn.png" : (Context.Session.GetString("custRoleName") == "DOCTOR" ? "doctor-vector.png" : (Context.Session.GetString("custRoleName") == "FASKES" ? "faskes.png" : "pasien.png" )))" style="height: 5rem;" />
+            <div class="sidebar-brand-text mx-3 h4" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">@Context.Session.GetString("custRoleName")</div>
+        </a>
+        <hr class="sidebar-divider my-0 mb-2">
+
+        @foreach(VMMMenu data in Model)
+        {
+            if(data.SmallIcon != null && data.Id == data.ParentId)
+            {
+                <a class="dropdown-toggle" data-bs-toggle="collapse" href="#collapseExample-@data.Id">
+                    <i class="@data.SmallIcon me-2"></i> @data.Name
+                </a>
+                <ul class="collapse list-unstyled ms-4 custom-min-margin-bottom" id="collapseExample-@data.Id">
+                    @foreach (VMMMenu submenu in Model)
+                    {
+                        if (submenu.ParentId != null && submenu.ParentId == data.Id)
+                        {
+                            <li class="custom-min-margin">
+                                <a href="@(submenu.Url == "/Profile/Index" ? $"{@submenu.Url +"/" + Context.Session.GetInt32("custId")}" : @submenu.Url)">
+                                    <div class="row my-auto">
+                                        <i class="@submenu.SmallIcon me-2 text-cream col-1"></i>
+                                        <p class="col">@submenu.Name</p>
+                                    </div>
+                                </a>
+                            </li>
+                        }
+                    }
+                </ul>
+            }
+        }
+
+        <div class="mb-5"></div>
+
+    </div>
+
+    <div class="content p-2">
+        <h1 class="h3 mb-0 textcolorhome mb-1"><span style="font-family: ">Dashboard</span></h1>
+
+        <div class="row text-center mb-3 p-4">
+            @foreach (VMMMenu data in Model)
+            {
+                if(data.BigIcon != null && data.BigIcon != "image-empty.png")
+                {
+                    <div class="border-left-primary py-2 col-lg-2 col-md-4 col-sm-6 card-hover">
+                        <a href="@data.Url" class="btn card shadow">
+                            <div>
+                                <div class="p-2 ">
+                                    <img style="height: 6rem; width: 10rem" class="rounded img-fluid card-img-top mb-1 text-center"
+                                            src="~/@ViewBag.ImgFolder/@(data.BigIcon ?? "image-empty.png")" />
+                                    <div class="text-center text-bold mb-2" id="nama">
+                                        <h5 style="max-width: 120px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" class="d-inline-block text-truncate" title="@data.Name">@data.Name</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+
+        <h1 class="h3 mb-0 textcolorhome mb-3 mt-4"><span style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">News</span></h1>
+
+        
+        <div class="row">
+            <div class="col-xl-8 col-lg-7">
+                <div>
+                    <img src="~/images//indexdoctor.jpg" class="rounded img-fluid card-img-top mb-1 text-center" style="height: 30rem" />
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-5 card-hover">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary" style="font-family: 'Comic Sans MS'">Revenue Sources</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-pie pt-4 pb-2 text-center mt-5 mb-5">
+                            <img src="~/images/pieVector.png"/>
+                        </div>
+                        <div class="mt-4 text-center small">
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-primary"></i> Pasien
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-success"></i> Doctor
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-danger"></i> Admin
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+</div>
+
+<script>
+    $("#mySidebar").addClass("d-none");
+
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "220px";
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("mySidebar").style.opacity = "1";
+        document.getElementById("mySidebar").style.transition = "0.5s";
+        document.getElementById("mySidebar").style.visibility = "visible";
+        document.getElementsByClassName("content")[0].style.marginLeft = "140px";
+        $("#openSideBar").addClass("d-none");
+        $("#mySidebar").removeClass("d-none");
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementsByClassName("content")[0].style.marginLeft = "0";
+        $("#openSideBar").removeClass("d-none");
+        $("#mySidebar").addClass("d-none");
+    }
+</script>

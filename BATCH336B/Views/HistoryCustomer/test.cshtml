@@ -1,0 +1,114 @@
+﻿@model VMMHistoryCustomer?
+@{
+
+    DateTime mydate = (DateTime)Model.Customer.Dob;
+    DateTime mydate2 = DateTime.Now;
+    TimeSpan selisih = mydate2 - mydate;
+    double umur = Convert.ToInt32(selisih.TotalDays) / 365.5;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .text-italic {
+            font-style: italic;
+            font-size: 12px;
+        }
+
+        .custom-label {
+            display: inline-block;
+            padding: 10px;
+            background-color: green; /* Warna latar hijau */
+            color: #ffffff; /* Warna teks putih */
+            border-radius: 5px; /* Sudut melengkung */
+        }
+
+        .c-margin-end {
+            margin-right: 50px;
+        }
+
+        .c-margin-top {
+            margin-top: 40px;
+        }
+
+        .c-text-size{
+            text-size: 12px;
+        }
+
+    </style>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BATCH336B</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+    <div class="card p-3">
+        <div class="text-center text-success text-bold h4">
+            Resep Digital
+        </div>
+        <div class="text-center mb-2 text-italic custom-label">
+            Resep digital akan tidak berlaku mulai tanggal 22 Juni 2020
+        </div>
+        <div class="d-flex justify-content-between mb-2">
+            <div class="c-margin-top">
+                <div class="text-success text-bold h6">
+                    <b>@Model.BiodatumDoctor.Fullname</b>
+                </div>
+                <div class="text-success h6">
+                    @Model.DoctorTreatment.Name
+                </div>
+                <div class="text-success h6">
+                    @Model.Appointment.AppointmentDate, @Model.MedicalFacility.Name
+                </div>
+            </div>
+            <div class="c-margin-end">
+                <img src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-health-logo-vector-png-image_5183004.jpg" style="height: 10rem;" class="rounded img-fluid fit-cover" />
+            </div>
+        </div>
+        <hr />
+        <div class="mt-2 mb-2">
+            <div class="text-success h6">
+                Nama Pasien :
+            </div>
+            <div class="text-success text-bold h6">
+                <b>@Model.Biodatum.Fullname</b>
+            </div>
+            <div class="text-success h6">
+                @(Model.Customer.Gender == "L" ? "Laki-laki" : "Perempuan"), @umur tahun
+            </div>
+            <div class="mt-3 mb-2 text-center text-success c-text-size">
+                Silahkan menghubungi fakses terdekat jika tidak ada perbaikan
+            </div>
+        </div>
+        <hr />
+        @foreach(VMTPrescription resepDigital in Model.Prescription)
+        {
+            <div class="mt-2 mb-2">
+                <div class="text-success h6">
+                    <b> @resepDigital.MedicalItemName</b>
+                </div>
+                <div class="text-success h6">
+                    @resepDigital.Dosage
+                </div>
+                <div class="text-success h6">
+                    @resepDigital.Directions
+                </div>
+                <div class="text-success h6">
+                    Waktu : @resepDigital.Time
+                </div>
+            </div>
+        }
+    </div>
+</body>
+
+

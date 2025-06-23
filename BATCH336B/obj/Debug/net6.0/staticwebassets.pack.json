@@ -1,0 +1,717 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BATCH336B.bundle.scp.css",
+      "PackagePath": "staticwebassets\\BATCH336B.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\00bfc14e-4922-4619-8d63-0a4c128b4411-Courier.png",
+      "PackagePath": "staticwebassets\\images\\00bfc14e-4922-4619-8d63-0a4c128b4411-Courier.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\0384ae2f-d5e7-4195-a1ff-50da7d70a8f7-c.png",
+      "PackagePath": "staticwebassets\\images\\0384ae2f-d5e7-4195-a1ff-50da7d70a8f7-c.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\0bb7f636-e7da-443f-81fa-0d14c3eb0349-c.png",
+      "PackagePath": "staticwebassets\\images\\0bb7f636-e7da-443f-81fa-0d14c3eb0349-c.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\0d29d2c3-a34b-493c-a2fd-3bcc9153e0fb-teh-hangat.jpeg",
+      "PackagePath": "staticwebassets\\images\\0d29d2c3-a34b-493c-a2fd-3bcc9153e0fb-teh-hangat.jpeg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\0ee4fba4-a0bb-483c-9f47-b5c326852a30-hakAkses-removebg-preview.png",
+      "PackagePath": "staticwebassets\\images\\0ee4fba4-a0bb-483c-9f47-b5c326852a30-hakAkses-removebg-preview.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\10a18d0e-fe3d-47bd-9807-fe4864fd2de1-Profile2.png",
+      "PackagePath": "staticwebassets\\images\\10a18d0e-fe3d-47bd-9807-fe4864fd2de1-Profile2.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\1736dda5-8dfc-4115-86d9-3e99e9ca86df-c.png",
+      "PackagePath": "staticwebassets\\images\\1736dda5-8dfc-4115-86d9-3e99e9ca86df-c.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\181a0cd5-0ba5-4686-be64-465738155dce-g5.JPG",
+      "PackagePath": "staticwebassets\\images\\181a0cd5-0ba5-4686-be64-465738155dce-g5.JPG"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\1fbf9ad8-c469-4a3a-8101-1b2cc7ac871f-Magnolia soulangeana-06.JPG",
+      "PackagePath": "staticwebassets\\images\\1fbf9ad8-c469-4a3a-8101-1b2cc7ac871f-Magnolia soulangeana-06.JPG"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\3029ff9e-486b-4599-9070-554814b12e07-seblak.jpe",
+      "PackagePath": "staticwebassets\\images\\3029ff9e-486b-4599-9070-554814b12e07-seblak.jpe"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\37572c14-c3a3-4479-852e-7c054268a391-c.png",
+      "PackagePath": "staticwebassets\\images\\37572c14-c3a3-4479-852e-7c054268a391-c.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\386ff8ec-160f-4099-832b-08b5bca34465-jenjangPendidikan-removebg-preview.png",
+      "PackagePath": "staticwebassets\\images\\386ff8ec-160f-4099-832b-08b5bca34465-jenjangPendidikan-removebg-preview.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\3f7b5679-7861-4d8d-a109-1e4b2c489d20-Profile3.png",
+      "PackagePath": "staticwebassets\\images\\3f7b5679-7861-4d8d-a109-1e4b2c489d20-Profile3.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\41a4324e-2b57-40a4-9685-97b5009d823c-CikiJaguar-removebg-preview.png",
+      "PackagePath": "staticwebassets\\images\\41a4324e-2b57-40a4-9685-97b5009d823c-CikiJaguar-removebg-preview.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\43898204-6c82-43a8-a8fa-281a26416288-jeruk-hangat.jpeg",
+      "PackagePath": "staticwebassets\\images\\43898204-6c82-43a8-a8fa-281a26416288-jeruk-hangat.jpeg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\45a1f16d-98e6-4652-838a-a8cdf5e9a538-Profile3.png",
+      "PackagePath": "staticwebassets\\images\\45a1f16d-98e6-4652-838a-a8cdf5e9a538-Profile3.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\4ff0cdbe-89a7-43a9-b29d-4c09c24df638-AP.jpg",
+      "PackagePath": "staticwebassets\\images\\4ff0cdbe-89a7-43a9-b29d-4c09c24df638-AP.jpg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\54704def-5439-48f9-b2d3-47d7a8f05633-ayam-geprek.jpeg",
+      "PackagePath": "staticwebassets\\images\\54704def-5439-48f9-b2d3-47d7a8f05633-ayam-geprek.jpeg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\561b2be3-2959-4973-b93d-67c5e228baa2-c.png",
+      "PackagePath": "staticwebassets\\images\\561b2be3-2959-4973-b93d-67c5e228baa2-c.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\5df95850-2245-4ad5-85e3-bf73fe645f58-c.png",
+      "PackagePath": "staticwebassets\\images\\5df95850-2245-4ad5-85e3-bf73fe645f58-c.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\66d8d2e4-f0ce-4f82-9e1c-9378f0c722ff-c.png",
+      "PackagePath": "staticwebassets\\images\\66d8d2e4-f0ce-4f82-9e1c-9378f0c722ff-c.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\6ecd3fe6-d999-4585-9847-d38b57ab06d7-carapembayaran-removebg-preview.png",
+      "PackagePath": "staticwebassets\\images\\6ecd3fe6-d999-4585-9847-d38b57ab06d7-carapembayaran-removebg-preview.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\76b81798-f1e6-44f3-adb5-966f4485df2e-AP.jpg",
+      "PackagePath": "staticwebassets\\images\\76b81798-f1e6-44f3-adb5-966f4485df2e-AP.jpg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\7bc3af92-3b67-4725-8e18-e654f0febe4b-c.png",
+      "PackagePath": "staticwebassets\\images\\7bc3af92-3b67-4725-8e18-e654f0febe4b-c.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\870d83ff-3672-43e0-a7fa-d8eed2e9eed7-c.png",
+      "PackagePath": "staticwebassets\\images\\870d83ff-3672-43e0-a7fa-d8eed2e9eed7-c.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\873110f9-4103-4548-a412-e4890e2dde8b-g1.JPG",
+      "PackagePath": "staticwebassets\\images\\873110f9-4103-4548-a412-e4890e2dde8b-g1.JPG"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\8ef73997-a464-49c0-8932-dfd3993d8da4-c.png",
+      "PackagePath": "staticwebassets\\images\\8ef73997-a464-49c0-8932-dfd3993d8da4-c.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\90d20439-0f48-4a1b-919d-dda54ff2f646-c.png",
+      "PackagePath": "staticwebassets\\images\\90d20439-0f48-4a1b-919d-dda54ff2f646-c.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\918f858a-5211-4c05-9960-31dcd1cb3afc-doctor.jpg",
+      "PackagePath": "staticwebassets\\images\\918f858a-5211-4c05-9960-31dcd1cb3afc-doctor.jpg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\96c50000-7fa5-43b1-b36a-43c0fb17a3a4-soto-ayam-sedap.jpg",
+      "PackagePath": "staticwebassets\\images\\96c50000-7fa5-43b1-b36a-43c0fb17a3a4-soto-ayam-sedap.jpg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\97971c33-a4fe-49cf-82b7-802453987a20-g5.JPG",
+      "PackagePath": "staticwebassets\\images\\97971c33-a4fe-49cf-82b7-802453987a20-g5.JPG"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\98103853-3ccd-4819-9e9f-586e6c437dd0-jenisKurir-removebg-preview.png",
+      "PackagePath": "staticwebassets\\images\\98103853-3ccd-4819-9e9f-586e6c437dd0-jenisKurir-removebg-preview.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\98de1d62-2227-4a16-9f14-1b6962046862-2 (2).png",
+      "PackagePath": "staticwebassets\\images\\98de1d62-2227-4a16-9f14-1b6962046862-2 (2).png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\995040b4-8d81-4afd-8d55-ed172a5ae43e-BloodGroup-removebg-preview.png",
+      "PackagePath": "staticwebassets\\images\\995040b4-8d81-4afd-8d55-ed172a5ae43e-BloodGroup-removebg-preview.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\9befb856-5e64-4e48-a781-c1e77738962c-Bougainvillea-06.JPG",
+      "PackagePath": "staticwebassets\\images\\9befb856-5e64-4e48-a781-c1e77738962c-Bougainvillea-06.JPG"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\LogoKesehatan.png",
+      "PackagePath": "staticwebassets\\images\\LogoKesehatan.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\Profile3.png",
+      "PackagePath": "staticwebassets\\images\\Profile3.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\ProfileVector.png",
+      "PackagePath": "staticwebassets\\images\\ProfileVector.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\a396c1f0-1bbc-4f48-9dad-ffaf113a04fc-c.png",
+      "PackagePath": "staticwebassets\\images\\a396c1f0-1bbc-4f48-9dad-ffaf113a04fc-c.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\a9259c36-787b-4e9a-86c9-4b51e408886d-pudding.jpeg",
+      "PackagePath": "staticwebassets\\images\\a9259c36-787b-4e9a-86c9-4b51e408886d-pudding.jpeg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\a93fb5c6-43fb-47f0-977b-fe254a46480a-seblak.jpe",
+      "PackagePath": "staticwebassets\\images\\a93fb5c6-43fb-47f0-977b-fe254a46480a-seblak.jpe"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\a9baff56-b111-4aac-8d53-8dfc8d23399b-AP.jpg",
+      "PackagePath": "staticwebassets\\images\\a9baff56-b111-4aac-8d53-8dfc8d23399b-AP.jpg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\adminn.png",
+      "PackagePath": "staticwebassets\\images\\adminn.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\asam.jpg",
+      "PackagePath": "staticwebassets\\images\\asam.jpg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\bg-login.png",
+      "PackagePath": "staticwebassets\\images\\bg-login.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\bgHome.jpg",
+      "PackagePath": "staticwebassets\\images\\bgHome.jpg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\c1fe7735-7f2e-4d40-8730-8fd17d5dff3a-AP.jpg",
+      "PackagePath": "staticwebassets\\images\\c1fe7735-7f2e-4d40-8730-8fd17d5dff3a-AP.jpg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\c4c5c302-baa0-4c99-acb6-62c584a1afdc-Pinus-01.JPG",
+      "PackagePath": "staticwebassets\\images\\c4c5c302-baa0-4c99-acb6-62c584a1afdc-Pinus-01.JPG"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\caridoktor.png",
+      "PackagePath": "staticwebassets\\images\\caridoktor.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\cetirizine.png",
+      "PackagePath": "staticwebassets\\images\\cetirizine.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\cf0fd566-3570-4d33-9759-f0b5d884a301-ice-cream-chlt.jpg",
+      "PackagePath": "staticwebassets\\images\\cf0fd566-3570-4d33-9759-f0b5d884a301-ice-cream-chlt.jpg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\d0308465-3abc-4c8a-8089-7d4064bac43a-AP.jpg",
+      "PackagePath": "staticwebassets\\images\\d0308465-3abc-4c8a-8089-7d4064bac43a-AP.jpg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\d6f37d03-d295-4fa1-a305-3b502a4cfa03-bank-removebg-preview.png",
+      "PackagePath": "staticwebassets\\images\\d6f37d03-d295-4fa1-a305-3b502a4cfa03-bank-removebg-preview.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\df834516-f14e-4c87-9a47-65c45bacd908-c.png",
+      "PackagePath": "staticwebassets\\images\\df834516-f14e-4c87-9a47-65c45bacd908-c.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\doctor-vector.png",
+      "PackagePath": "staticwebassets\\images\\doctor-vector.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\eeddda12-a9c4-46bc-a478-e9819359bb2d-c.png",
+      "PackagePath": "staticwebassets\\images\\eeddda12-a9c4-46bc-a478-e9819359bb2d-c.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\f62d91d1-3dcb-4e14-829b-620224d8903c-c.png",
+      "PackagePath": "staticwebassets\\images\\f62d91d1-3dcb-4e14-829b-620224d8903c-c.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\faskes.png",
+      "PackagePath": "staticwebassets\\images\\faskes.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\fe64bae4-6b9d-4fdb-bfbb-b79b15ef497c-pasien.png",
+      "PackagePath": "staticwebassets\\images\\fe64bae4-6b9d-4fdb-bfbb-b79b15ef497c-pasien.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\image-empty.png",
+      "PackagePath": "staticwebassets\\images\\image-empty.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\indexdoctor.jpg",
+      "PackagePath": "staticwebassets\\images\\indexdoctor.jpg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\medicalitem.png",
+      "PackagePath": "staticwebassets\\images\\medicalitem.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\obhcombi.jpg",
+      "PackagePath": "staticwebassets\\images\\obhcombi.jpg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\panadol.jpg",
+      "PackagePath": "staticwebassets\\images\\panadol.jpg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\pasien.png",
+      "PackagePath": "staticwebassets\\images\\pasien.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\pieVector.png",
+      "PackagePath": "staticwebassets\\images\\pieVector.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\procol.jpg",
+      "PackagePath": "staticwebassets\\images\\procol.jpg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\rhinos.jpg",
+      "PackagePath": "staticwebassets\\images\\rhinos.jpg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\tolakanginflu.png",
+      "PackagePath": "staticwebassets\\images\\tolakanginflu.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\images\\userProfile.png",
+      "PackagePath": "staticwebassets\\images\\userProfile.png"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\all.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\all.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\all.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\all.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\brands.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\brands.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\brands.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\brands.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\fontawesome.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\fontawesome.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\fontawesome.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\fontawesome.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\regular.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\regular.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\regular.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\regular.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\solid.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\solid.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\solid.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\solid.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\svg-with-js.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\svg-with-js.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\svg-with-js.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\svg-with-js.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\v4-font-face.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\v4-font-face.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\v4-font-face.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\v4-font-face.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\v4-shims.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\v4-shims.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\v4-shims.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\v4-shims.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\v5-font-face.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\v5-font-face.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\css\\v5-font-face.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\v5-font-face.min.css"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\js\\all.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\all.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\js\\all.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\all.min.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\js\\brands.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\brands.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\js\\brands.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\brands.min.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\js\\conflict-detection.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\conflict-detection.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\js\\conflict-detection.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\conflict-detection.min.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\js\\fontawesome.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\fontawesome.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\js\\fontawesome.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\fontawesome.min.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\js\\regular.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\regular.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\js\\regular.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\regular.min.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\js\\solid.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\solid.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\js\\solid.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\solid.min.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\js\\v4-shims.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\v4-shims.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\js\\v4-shims.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\v4-shims.min.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\sprites\\brands.svg",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\sprites\\brands.svg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\sprites\\regular.svg",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\sprites\\regular.svg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\sprites\\solid.svg",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\sprites\\solid.svg"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\webfonts\\fa-v4compatibility.ttf",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-v4compatibility.ttf"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\font-awesome\\webfonts\\fa-v4compatibility.woff2",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-v4compatibility.woff2"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.BATCH336B.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.BATCH336B.props",
+      "PackagePath": "build\\BATCH336B.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.BATCH336B.props",
+      "PackagePath": "buildMultiTargeting\\BATCH336B.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.BATCH336B.props",
+      "PackagePath": "buildTransitive\\BATCH336B.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,112 @@
+﻿@{
+    ViewData["Title"] = "Create Menu";
+}
+@model VMMMenu?
+
+
+<div class="card">
+    <div class="card-header h3 mb-4"><b>Menu Add</b></div>
+    <div class="card-body">
+        <form id="frmAddMenu" asp-controller="Home" asp-action="Add" enctype="multipart/form-data">
+            <div class="bg-details text-center d-none" id="oldImageView">
+                <img src="" id="editImage"
+                     class="img-fluid card-img-top" style="height: 20rem; width: 37rem;" />
+            </div>
+            <div class="bg-details text-center" id="nullImageView">
+                <img src="~/@ViewBag.ImgFolder/image-empty.png"
+                     class="img-fluid card-img-top" style="height: 20rem; width: 37rem;" />
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text col-3">Name</label>
+                <input type="text" class="form-control col-9" placeholder="Menu Name" aria-label="Name" name="Name" id="Name">
+                <input type="hidden" name="CreateBy" id="CreateBy" value="1" />
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text col-3">Url</label>
+                <input type="text" class="form-control col-9" placeholder="Url" name="Url" id="Url">
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text col-3" for="formImage" accept="image">Big_Icon</label>
+                <input class="form-control col-6" type="file" id="imageFile" name="ImageFile">
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text col-3">Small_Icon</label>
+                <input type="text" class="form-control col-9" placeholder="SmallIcon" name="SmallIcon" id="SmallIcon">
+            </div>
+            <div class="text-end">
+                <button class="btn btn-primary" type="submit" id="btnSubmitAddProduct"><i class="fa-solid fa-save"></i> Submit</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<script>
+
+    $("#frmAddMenu").validate({
+
+    });
+
+
+    $("#imageFile").click(function (e) {
+        //memilih file
+        function handleFileSelect(event) {
+            const imageFile = event.target;
+
+            if (imageFile.files.length > 0) {
+                //FileReader membaca file sebagai URL data (readAsDataURL).
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    //Fungsi IamgeDataUrl menyetel atribut src dari elemen gambar ke URL data ini.
+                    const imageDataUrl = document.getElementById("editImage");
+                    imageDataUrl.src = e.target.result;
+                };
+
+                // Mulai membaca file sebagai url
+                reader.readAsDataURL(imageFile.files[0]);
+
+                $("#oldImageView").removeClass('d-none');
+                $("#nullImageView").addClass('d-none');
+            }
+            else {
+                $("#oldImageView").addClass('d-none');
+                $("#nullImageView").removeClass('d-none');
+            }
+        }
+
+        // Menambahkan event listener untuk input file
+        const imageFile = document.getElementById("imageFile");
+        imageFile.addEventListener("change", handleFileSelect);
+    });
+
+    $("#frmAddMenu").submit(function (e) {
+        e.preventDefault();
+
+        if ($(this).valid()) {
+
+            $.ajax({
+                url: '/Home/Add',
+                type: 'post',
+                data: new FormData($("#frmAddMenu")[0]),
+                processData: false,
+                contentType: false,
+                beforeSend: function () { },
+                success: function (response) {
+                    if (response.statusCode == 200 || response.statusCode == 201) {
+                        alert(response.message, 'info');
+                        location.reload();
+                    }
+                    else {
+                        alert(response.message);
+                    }
+                },
+                error: function (errResponse) {
+                    debugger;
+                    console.error(errResponse);
+                }
+            });
+        }
+    });
+
+</script>

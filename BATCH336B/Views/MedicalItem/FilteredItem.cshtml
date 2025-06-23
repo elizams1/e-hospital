@@ -1,0 +1,259 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Pagination<VMMMedicalItem>?
+@{
+}
+<div class="card border-0">
+    <div class="card-header h6 border-0 bg-transparent">
+        <div class="d-flex justify-content-between">
+            <div class="h5">
+                <span>Hasil pencarian berdasarkan: 
+                    @if(ViewBag.cat != null){
+                        Html.Raw("Kategori @ViewBag.cat");
+                    }
+                     Kata Kunci @ViewBag.filter</span>
+                <br />
+                @if (ViewBag.segmen == "bebas")
+                {
+                    <span> Hanya cari obat bebas (tanpa resep) </span>
+                    
+                } else
+                {
+                    <span> Semua obat (termasuk obat keras) </span>
+                }
+            </div>
+            <div>
+                <button id="btnSearch" class="btn btn-outline-success" title="Edit" data-bs-toggle="modal" data-bs-target="#staticModal">
+                    Ulangi Pencarian
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            @if(Model != null)
+            {
+                foreach(VMMMedicalItem data in Model)
+                {
+                    <div class="col-lg-6 col-md-10 col-sm-12 mb-3">
+                        <div class="card">
+                            <div class="card-body" style="height: 190px">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h6><b>@data.Name</b></h6>
+                                        <span>@data.Packaging</span>
+                                        <p>
+                                            Rp @data.PriceMin - <span data-price="@data.PriceMax" id="medItemMaxPrice-@data.Id"> Rp @data.PriceMax</span>
+                                        </p>
+                                        <p>@data.Indication</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <img src="/@ViewBag.Images/@data.ImagePath" class="img-fluid" style="aspect-ratio: 1/1; height:8rem; object-fit: cover;" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <div class="row text-center">
+                                    <div class="col-7 text-center">
+                                        <button class="btn btn-success w-100 py-1 addQty btnCart" id="btnCart-@data.Id" data-id="@data.Id">
+                                            Tambah Ke Keranjang
+                                        </button>
+
+                                        <div class="input-group w-100 d-none" id="quantity-@data.Id">
+                                            <button type="button" class="btn btn-light col-2 bg-transparent minQty" data-id="@data.Id">
+                                                <span class="text-success"><b> &minus; </b></span>
+                                            </button>
+                                            <div class="input-group-text col-8 bg-transparent">
+                                                <span class="w-100" id="medItemQty-@data.Id"> 0 </span>
+                                            </div>
+                                            <button type="button" class="btn btn-light bg-transparent col-2 addQty" data-id="@data.Id">
+                                                <span class="text-success"><b> &plus; </b></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                        <button class="btn btn-outline-success py-1 w-75 btnDetail"
+                                                data-Id="@data.Id" data-bs-toggle="modal" data-bs-target="#staticModalLg">
+                                            Detail
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div class="d-flex justify-content-between mt-3">
+                    <div class="input-group py-1" style="width: 100px;">
+                        <select class="form-select" id="currPageSize">
+                            @for (int i = 4; i <= 10; i += 2)
+                            {
+                                if (ViewBag.PageSize == i)
+                                {
+                                    <option value="@i" selected>@i</option>
+                                }
+                                else
+                                {
+                                    <option value="@i">@i</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="input-group w-25 py-1">
+                        <a class="btn btn-success col-2 @(Model.PageIndex <= 1 ? "disabled": "")" title="Previous Page"
+                           asp-controller="MedicalItem" asp-action="FilteredItem"
+                           asp-route-filter="@ViewBag.Filter"
+                           asp-route-currPageSize="@ViewBag.PageSize"
+                           asp-route-pageNumber="@(Model.PageIndex <= 1 ? Model.PageIndex : Model.PageIndex-1)"
+                           asp-route-orderBy="@ViewBag.OrderBy"><i class="fas fa-chevron-left"></i></a>
+
+                        <div class="input-group-text text-center col-6">
+                            <span class="w-100">
+                                @Model.PageIndex of @Model.TotalPages
+                            </span>
+                        </div>
+                        <a class="btn btn-success col-2 @(Model.PageIndex >= Model.TotalPages ? "disabled": "")" title="Next Page"
+                           asp-controller="MedicalItem" asp-action="FilteredItem"
+                           asp-route-filter="@ViewBag.Filter"
+                           asp-route-currPageSize="@ViewBag.PageSize"
+                           asp-route-pageNumber="@(Model.PageIndex >= Model.TotalPages ? Model.PageIndex : Model.PageIndex+1)"
+                           asp-route-orderBy="@ViewBag.OrderBy"><i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            } else
+            {
+               <div>
+                   <span class="text-success h6"> Obat & Prodk Kesehatan tidak ditemukan! </span>
+               </div>
+            }
+        </div>
+        
+    </div>
+
+    <div id="tabKeranjang" class="card-footer border-0 d-none mt-4" style="background-color: #c5e1a5; height: 60px;">
+        <div class="d-flex justify-content-between">
+            <div class="h5 text-muted">
+                <span id="totProduct" name="totProduct" value="@ViewBag.TotProduct">0</span> Produk | Estimasi Harga : <span id="estPrice" name="estPrice" value="@ViewBag.EstPrice">0</span>
+            </div>
+            <button class="btn btn-success py-1" id="myCart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Keranjang Saya</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function (e) {
+        $("#btnSearch").click(function (event) {
+            $("#staticModalBody").load("/MedicalItem/Search");
+        });
+
+        $(".btnDetail").click(function (e) {
+            let varId = $(this).data("id");
+            $("#staticModalLgBody").load("/MedicalItem/Details/" + varId);
+        });
+
+        $(".btnCart").click(function (e) {
+            let varId = $(this).data("id");
+
+            $(this).addClass("d-none");
+            $("#quantity-" + varId).removeClass("d-none");
+        });
+    
+        let totProduct = parseInt($("#totProduct").text());
+        let estPrice = parseInt($("#estPrice").text());
+
+        $(".addQty").click(function (e) {
+
+            $("#tabKeranjang").removeClass("d-none");
+
+            let medItemId = $(this).data("id");
+
+            let medItemQty = parseInt($("#medItemQty-" + medItemId).text());
+            let medItemPrice = parseFloat($("#medItemMaxPrice-" + medItemId).data("price"));
+
+            medItemQty++;
+            totProduct++;
+            estPrice += medItemPrice;
+
+            // UPDATE UI & SET VALUE
+            $("#medItemQty-" + medItemId).text(medItemQty);
+            
+            $("#totProduct").text(totProduct);
+            $("#totProduct").val(totProduct);
+
+            $("#estPrice").text(estPrice);
+            $("#estPrice").val(estPrice);
+
+            console.log($("#estPrice").val());
+            debugger;
+
+        });
+
+        $(".minQty").click(function (e) {
+            debugger;
+            let medItemId = $(this).data("id");
+            
+            let medItemQty = parseInt($("#medItemQty-" + medItemId).text());
+            let medItemPrice = parseFloat($("#medItemMaxPrice-" + medItemId).data("price"));
+
+            medItemQty--;
+            totProduct--;
+            estPrice -= medItemPrice;
+
+            // UPDATE UI & SET VALUE
+            $("#medItemQty-" + medItemId).text(medItemQty);
+
+            $("#totProduct").text(totProduct);
+            $("#totProduct").val(totProduct);
+
+            $("#estPrice").text(estPrice);
+            $("#estPrice").val(estPrice);
+
+            //CHECK IF 0
+            if (medItemQty == 0) {
+                $("#quantity-" + medItemId).addClass("d-none");
+                $("#btnCart-" + medItemId).removeClass("d-none");
+            }
+
+            if (totProduct == 0) {
+                $("#tabKeranjang").addClass("d-none");
+            }
+
+        });
+
+        $("#currPageSize").change(function () {
+            location.replace("/MedicalItem/FilteredItem?segmen=@ViewBag.segmen&filter=@ViewBag.filter&minPrice=@ViewBag.minPrice&maxPrice=@ViewBag.maxPrice&cat=@ViewBag.cat&currPageSize=" + $(this).val() + "totProduct=@ViewBag.totProduct&estPrice=@ViewBag.estPrice");
+        })
+
+        $("#myCart").click(function (e) {
+            $.ajax({
+                url: '/MedicalItem/Save',
+                type: 'post',
+                data: {
+                    "totProduct": totProduct,
+                    "estPrice": estPrice
+                },
+                dataType: "json",
+                beforeSend: () => { },
+                success: function (response) {
+                    debugger;
+                    if (response.statusCode == 200 || response.statusCode == 201) {
+                        alert("Keranjang berhasil tersimpan");
+                        location.reload();
+                    } else {
+                        alert(response.message)
+                        debugger;
+                    }
+                },
+                error: function (errResponse) {
+                    console.error(errResponse);
+                    debugger;
+                }
+            });
+        });
+        
+    });
+    
+</script>

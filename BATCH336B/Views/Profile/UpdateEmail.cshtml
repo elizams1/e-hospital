@@ -1,0 +1,351 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model VMMProfile?;
+@{
+    Layout = null;
+}
+
+@* MODAL UBAH EMAIL PERTAMA *@
+<div class="card-body" id="modal-check-email">
+    <form id="frm-update-email" asp-controller="profile" asp-action="profilemenu">
+        <input type="hidden" name="Id" id="Id" value="@Model.Id" />
+        <input type="hidden" name="ModifiedBy" value="@Context.Session.GetInt32("custId")" />
+        <p class="fs-5 text-success">Masukan alamat E-mail yang baru</p>
+        <div class="">
+            <label class="fs-5 mb-1 mx-1">Email</label>
+            <input type="text" class="border-0 rounded-0 border-bottom border-success form-control" name="Email" id="inoputemail" value="@Model.Email" required>
+            <p id="errEmail" class="d-none text-danger fst-italic"></p>
+        </div>
+        <div class="d-flex justify-content-end mt-3">
+            <button type="button" class="input-group-text btn border-danger text-danger mx-3" id="btnCancel1" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i>  Batal</button>
+            <button type="submit" class="input-group-text btn btn-success" id="btnSubmit1"><i class="fa-solid fa-floppy-disk"></i>  Ubah</button>
+            <button class="btn btn-success" type="button" id="btnLoading1" disabled>
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                Loading...
+            </button>
+        </div>
+    </form>
+</div>
+
+
+@* MODAL INPUT KODE OTP *@
+
+<form id="frm-input-otp" >
+    <div class="card-body d-none" id="modal-input-otp">
+        <p class="fs-5 text-success">Masukan kode OTP yang telah dikirimkan ke email anda</p>
+        <div class="mb-1">
+            <input type="number" class="border-0 rounded-0 text-center border-bottom border-success form-control" name="Otp" id="inputOtp" required>
+        </div>
+
+        <div id="errorContainer1" class="text-danger fst-italic px-2 pb-2">
+        </div>
+
+        <div class="text-center">
+            <p id="resendOtpCountdown" class="btn btnSendOtp text-secondary">Kirim ulang kode OTP <span id="timer"></span></p>
+            <button type="button" class="input-group-text btn btn-success disabled" id="btnSendOtpEmail"><i class="fa-regular fa-envelope"></i> Kirim Ulang OTP</button>
+            <button class="btn btn-success disabled" type="button" id="btnLoading3" disabled>
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                Loading...
+            </button>
+        </div>
+
+        <div class="d-flex justify-content-end mt-3">
+            <button type="button" class="input-group-text btn border-danger text-danger mx-3" id="btnCancel2" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i>  Batal</button>
+            <button type="submit" class="input-group-text btn btn-success" id="btnConfirmOtp"><i class="fa-solid fa-floppy-disk"></i>  Konfirmasi OTP</button>
+
+            <button class="btn btn-success" type="button" id="btnLoading2" disabled>
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                Loading...
+            </button>
+        </div>
+    </div>
+</form>
+
+
+
+
+@* MODAL SUCCESS UPDATE EMAIL DAN VERIF OTP *@
+<div id="modal-success-update-email" class=" d-none">
+    <p>Email berhasil diubah. Silahkan masuk kembali menggunakan Email yang baru!</p>
+</div>
+
+<script>
+    
+
+    $("#staticModalLabelE").html("@ViewBag.Title");
+
+    $("#btnLoading1").hide();
+    $("#btnLoading2").hide();
+
+    $("#frm-update-email").validate({
+        errorClass:"text-danger fst-italic",
+        rules:{
+            Email:{
+                "email": true
+            }
+        },
+        messages: {
+            Email: {
+                "required":"*Email wajib diisi!",
+                "email":"*Gunakan format email yang benar! contoh: eliza@ethreal.email"
+            }
+        }
+    })
+
+    $("#frm-input-otp").validate({
+        errorClass: "text-danger fst-italic",
+        messages: {
+            Otp: {
+                "required":"*Kode OTP wajib diisi!"
+            }
+        }
+    })
+
+  
+    $("#frm-update-email").submit(function (event) {
+        $("#errEmail").addClass("d-none");
+        event.preventDefault();
+        if ($("#frm-update-email").valid()) {
+            console.log("email valid");
+            email = $("#inoputemail").val();
+            $.ajax({
+                url: '/Profile/CheckEmail',
+                type: 'post',
+                data: { "email": email },
+                dataType: 'json',
+                beforeSend: function () {
+                    // Proses before send data
+                    $("#btnSubmit1").hide();
+                    $("#btnLoading1").show();
+                },
+                success: function (response) {
+                    // debugger;
+                    // Proses success send data
+                    if (response.statusCode == 300) {
+                        console.log(email);
+                        console.log("email ada");
+                        $("#errEmail").text("*Email Sudah Terdaftar sebelumnya");
+                        $("#errEmail").removeClass("d-none");
+
+                        $("#btnSubmit1").show();
+                        $("#btnLoading1").hide();
+                        return true;
+                    }
+                    else {
+                        console.log(email);
+                        console.log("email ga ada");
+
+                        $.ajax({
+                            url: "/Profile/SendOtp",
+                            type:"post",
+                            data: {
+                                "userId": $("#Id").val(),
+                                "email": email
+                            },
+                            dataType:'json',
+                            beforeSend:()=>{
+
+                            },
+                            success: function (response){
+                                if (response.statusCode == 200) {
+                                    console.log("email terkirim");
+                                    
+                                    $("#btnLoading2").hide();
+                                    $("#btnLoading3").hide();
+                                    $("#modal-input-otp").removeClass('d-none');
+                                    $("#modal-check-email").addClass('d-none');
+                                    
+                                    // countDownOtp();
+                                    setTimeout(
+                                        function (e) {
+                                            $("#btnSendOtpEmail").removeClass("disabled");
+                                        }, 11000
+                                    );
+                                    countDownOtp();
+                                    
+                                }
+                                else{
+
+                                    console.log("email tidak terkirim");
+                                    debugger;
+                                }
+                            },
+                            error: function (errResponse) {
+                                debugger;
+                            }
+                        })
+
+                    }
+                },
+                error: function (errResponse) {
+                    debugger;
+                }
+            })
+        }
+    })
+
+    $("#btnSendOtpEmail").click(function(e){
+        e.preventDefault();
+        
+        console.log("sendOtp");
+        $("#inputOtp").val('');
+
+        $("#errorContainer1").addClass("d-none");
+        $("#btnConfirmOtp").addClass("disabled");
+        $("#btnSendOtpEmail").addClass("disabled");
+
+        email = $("#inoputemail").val();
+        $.ajax({
+            url: "/Profile/SendOtp",
+            type: "post",
+            data: { 
+                "userId":$("#Id").val(),
+                "email": email
+            },
+            dataType: 'json',
+            beforeSend: () => {
+                $("#btnLoading3").show();
+                $("#btnSendOtpEmail").hide();
+            },
+            success: function (response) {
+                if (response.statusCode == 200) {
+                    $("#btnSendOtpEmail").show();
+                    $("#btnConfirmOtp").removeClass("disabled");
+                    console.log("email terkirim");
+                    $("#btnLoading3").hide();
+                    $("#btnLoading2").hide();
+                    countDownOtp();
+                    setTimeout(
+                        function (e) {
+                            $("#btnSendOtpEmail").removeClass("disabled");
+                        }, 11000
+                    );
+                }
+                else {
+                    console.log("email tidak terkirim");
+                    debugger;
+                }
+            },
+            error: function (errResponse) {
+                debugger;
+            }
+        })
+    })
+
+    $("#btnConfirmOtp").click(function(e){
+        e.preventDefault();
+
+        console.log("confirmOtp");
+        $("#errorContainer1").addClass("d-none");
+        
+        email = $("#inoputemail").val();
+        let otp = $("#inputOtp").val();
+        if ($("#frm-input-otp").valid()){
+            $.ajax({
+                url: "/Profile/VerifikasiOtp",
+                type: "post",
+                dataType: "json",
+                data: { "inputOtp": otp },
+                beforeSend: function () {
+                    $("#btnConfirmOtp").hide();
+                    $("#btnLoading2").show();
+                },
+                success: function (response) {
+
+                    if (response.statusCode == 200) {
+                        console.log("HTTP STATUS OK OTP BENAR");
+                        $.ajax({
+                            url: "/Profile/UpdateEmail",
+                            type: "post",
+                            dataType: "json",
+                            data: $("#frm-update-email").serialize(),
+                            beforeSend: () => {
+
+                            },
+                            success: function (response) {
+                                if (response.statusCode == 200) {
+                                    $("#modal-success-update-email").removeClass('d-none');
+                                    $("#modal-input-otp").addClass('d-none');
+                                    setTimeout(
+                                        function (e) {
+                                            location.replace('/Profile/Logout');
+                                        }, 2000
+                                    );
+                                }
+                                else {
+                                    $("#modal-input-otp").text("GA UPDATE");
+                                }
+                            },
+                            error: function (errResponse) {
+                                debugger;
+                                $("#modal-success-update-email").removeClass('d-none');
+                                $("#modal-input-otp").addClass('d-none');
+
+                            }
+                        })
+                    }
+                    else if (response.statusCode == 204) {
+                        console.log("HTTP STATUS NO CONTENT OTP BENAR TAPI EXPIRED");
+                        $("#errorContainer1").removeClass("d-none");
+                        $("#errorContainer1").text("Kode OTP Kedaluwarsa, Silahkan kirim ulang kode OTP!");
+                        $("#btnConfirmOtp").show();
+                        $("#btnLoading2").hide();
+                        // debugger;
+
+                    }
+                    else if (response.statusCode == 404) {
+                        console.log("HTTP STATUS NOT FOUND KODE OTP SALAH");
+                        $("#errorContainer1").removeClass("d-none");
+                        $("#errorContainer1").text("Kode OTP Salah");
+                        $("#btnConfirmOtp").show();
+                        $("#btnLoading2").hide();
+                        // debugger;
+                    }
+                },
+                error: function (errResponse) {
+                    debugger;
+                }
+            })
+        }
+        
+    })
+
+    $("#inputOtp").change(function (e) {
+        $("#errorContainer1").addClass("d-none");
+    })
+    function countDownOtp(){
+
+        var time = 10; // Waktu tunggu dalam detik
+        var resendButton = $('#btnSubmit3');
+        var timerElement = $('#timer');
+
+        // Fungsi untuk memperbarui waktu pada timer
+        var updateTimer = function (seconds) {
+            var minutes = Math.floor(seconds / 60);
+            var seconds = seconds % 60;
+
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            timerElement.text(minutes + ":" + seconds);
+        };
+
+        // Fungsi untuk mengatur ulang dan memulai timer
+        var startTimer = function (duration) {
+            var timer = duration, minutes, seconds;
+            var interval = setInterval(function () {
+                updateTimer(timer);
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    resendButton.removeClass("disabled") // Mengaktifkan kembali tombol
+                    timerElement.text("");
+                }
+            }, 1000);
+        };
+
+        // Mengaktifkan timer ketika halaman dimuat
+        startTimer(time);
+    }
+</script>

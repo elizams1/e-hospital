@@ -1,0 +1,254 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+    int? id = Context.Session.GetInt32("custId");
+}
+<partial name="_Modal_W">
+
+@model Pagination<VMMHistoryCustomer>?
+    @{
+        Layout = "_Layout_E";
+        ViewData["Title"] = "Profile Page";
+    }
+
+<div class="d-flex gap-3">
+    <div class="d-flex flex-column gap-3 w-25">
+        <div class="card border-0">
+            <div class="card-body d-flex flex-column align-items-center">
+                <div class="w-75 d-flex justify-content-end">
+                    <div class="px-2 py-1 bg-success rounded-circle text-white z-index-1 position-absolute ">
+                        <i class="fa-solid fa-pen"></i>
+                    </div>
+                </div>
+                
+                <img class="img-profile mb-3 w-75 rounded-circle" src="" />
+                <div class="h1"><i class="fa-solid fa-star"></i></div>
+                <p class="m-0">Bronze Member</p>
+                <p class="fst-italic">Since 2023</p>
+            </div>
+        </div>
+        <div class="card border-0">
+            
+            <div class="card-body">
+                <div>
+                        <a id="menuPasien" asp-controller="Profile" asp-action="Index" asp-route-id="@id" class="btn fw-bold cl-temp">Pasien</a>
+                </div>
+                <div>
+                    <button id="menuPembelianObat" class="btn fw-bold cl-temp">Pembelian Obat</button>
+                </div>
+                <div>
+                    <button id="menuRencanaKedatangan" class="btn fw-bold cl-temp">Rencana Kedatangan</button>
+                </div>
+                <div>
+                    <button id="menuRiwayatChatDokter" class="btn fw-bold cl-temp">Riwayat Chat Dokter</button>
+                </div>
+                <div>
+                    <button id="menuRiwayatKedatangan" class="btn btn-outline-success fw-bold cl-temp">Riwayat Kedatangan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-75 menu-container-side-bar">
+        <h2 class="text-success mb-2">Riwayat Kedatangan</h2>
+        <div> ..</div>
+        <div class="row">
+            <div class="card p-2">
+                <div class="d-flex justify-content-around mb-2 mt-2">
+                    <form class="w-50 me-5" id="frmFilter" asp-controller="HistoryCustomer" asp-action="RiwayatKedatangan">
+                        <div class="input-group">
+                            <input id="filter" name="filter" type="text" class="form-control" aria-label="Filter" value="@ViewBag.Filter" placeholder="Search Name Customer or Name Doctor" aria-describedby="iSearch" />
+                            <button type="submit" class="btn input-group-text btn-success" id="iSearch">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <a class="text-decoration-none text-black p-1 ms-5">
+                        Urutkan
+                    </a>
+                    <div class="text-end me-5">
+                        <div class="input-group">
+                            <div class="text-end">
+                                <div class="dropdown">
+                                    <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            @if (ViewBag.OrderBy != null)
+                                            {
+                                                @if (ViewBag.OrderBy == "tgl_dibuat" || ViewBag.OrderBy == "tgl_dibuat_desc")
+                                                {
+                                                    <span>Tanggal Dibuat</span>
+                                                }
+                                                if (ViewBag.OrderBy == "tgl_kedatangan" || ViewBag.OrderBy == "tgl_kedatangan_desc")
+                                                {
+                                                    <span>Tanggal Kedatangan</span>
+                                                }
+                                                if (ViewBag.OrderBy == "nama_pasien" || ViewBag.OrderBy == "nama_pasien_desc")
+                                                {
+                                                    <span>Nama Pasien</span>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <span>Tanggal Kedatangan</span>
+                                            }
+                                        </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="btn dropdown-item" asp-route-orderBy="@ViewBag.TglKedatangan"><button class="btn">Tanggal Kedatangan</button></a></li>
+                                            <li><a class="btn dropdown-item" asp-route-orderBy="@ViewBag.NamaPasien"><button class="btn">Nama Pasien</button></a></li>
+                                            <li><a class="btn dropdown-item" asp-route-orderBy="@ViewBag.TglDibuat"><button class="btn">Tanggal Dibuat</button></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-end p-2">
+                        <a class="btn bg-transparent" asp-route-orderBy="@(ViewBag.OrderBy == "nama_pasien" ? (ViewBag.NamaPasienDesc ?? ViewBag.NamaPasien) : ( ViewBag.OrderBy == "nama_pasien_desc" ? (ViewBag.NamaPasien ?? ViewBag.NamaPasienDesc) : (ViewBag.OrderBy == "tgl_dibuat" ? (ViewBag.TglDibuatDesc ?? ViewBag.TglDibuat) : (ViewBag.OrderBy == "tgl_dibuat_desc" ? (ViewBag.TglDibuat ?? ViewBag.TglDibuatDesc) : (ViewBag.OrderBy == null ? ViewBag.TglKedatanganDesc : null )))))"><button class="btn">@((ViewBag.OrderBy == "tgl_dibuat_desc" || ViewBag.OrderBy == "tgl_kedatangan_desc" || ViewBag.OrderBy == "nama_pasien_desc") ? "Z-A" : "A-Z")</button></a>
+                    <a>|</a>
+                    <select id="currPageSize" class="btn">
+                        @for (int i = 5; i <= 20; i += 5)
+                        {
+                            if (ViewBag.PageSize == i)
+                            {
+                                <option value="@i" selected>@i</option>
+                            }
+                            else
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        }
+                    </select>
+                </div>
+                
+                @foreach (VMMHistoryCustomer data in Model)
+                {
+                    int i = 1;
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <span class="h5">@data.Biodatum.Fullname</span>
+                                <div class="dropdown">
+                                    <button class="btn btn-outline-success" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        ...
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="#">Beri Ulasan</a></li>
+                                        <li><a class="dropdown-item" href="#">Beri Penilaian</a></li>
+                                        <li><a class="dropdown-item" href="#">Cek Status</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <span>@data.Appointment.AppointmentDate?.ToString("dd MMMM yyyy"), @data.MedicalFacility.Name</span>
+                            </div>
+                            <div>
+                                <span>@data.BiodatumDoctor.Fullname - @data.DoctorTreatment.Name</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-success">
+                            <buton id="btnDetails" data-id="@data.Appointment.Id" class="btn btn-success w-100" data-bs-toggle="collapse" data-bs-target="#detail-row-@data.Appointment.Id" onclick="toggleDetails(this)">Lihat detail kedatangan</buton>
+                        </div>
+                    </div>
+                    <div class="card mb-2 p-2">
+                        <div id="detail-row-@data.Appointment.Id" class="collapse">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <b>Diagnosa</b>
+                                        </div>
+                                        <div>
+                                            @data.AppointmentDone.Diagnosis
+                                        </div>
+                                    </div>
+
+                                    @foreach (VMTPrescription resepDigital in data.Prescription)
+                                    {
+                                        if (resepDigital.MedicalItemId != null && i == 1)
+                                        {
+                                            <div class="col-6">
+                                                <div class="">
+                                                    <b>ResepDigital</b>
+                                                </div>
+                                                @if ((data.Appointment.AppointmentDate + TimeSpan.FromDays(2)) < DateTime.Now)
+                                                {
+                                                    <div class="mb-2">
+                                                        <b class="text-italic text-danger">Resep digital sudah tidak berlaku sejak tanggal @((data.Appointment.AppointmentDate + TimeSpan.FromDays(2))?.ToString("dd MMMM yyyy"))</b>
+                                                    </div>
+                                                }
+                                                <div class="card mt-2">
+                                                    @foreach (VMTPrescription resepObat in data.Prescription)
+                                                    {
+
+                                                        <div class="card-body">
+                                                            <div>
+                                                                <b>@resepObat.MedicalItemName</b>
+                                                            </div>
+                                                            <div>
+                                                                @resepObat.Dosage
+                                                            </div>
+                                                            <div>
+                                                                @resepObat.Directions
+                                                            </div>
+                                                            <div>
+                                                                Waktu: @resepObat.Time
+                                                            </div>
+                                                        </div>
+
+                                                    }
+                                                </div>
+                                                <button class="btn btn-success w-100 mt-1 cetakResep @(resepDigital.PrintAttempt == 2 || (data.Appointment.AppointmentDate + TimeSpan.FromDays(2)) < DateTime.Now ? "disabled":"")" data-resep="@data.Appointment.Id" data-bs-toggle="modal" data-bs-target="#staticModal">
+                                                    Cetak (.Pdf)
+                                                </button>
+                                            </div>
+                                            i++;
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row p-3">
+                <div class="col-4"></div>
+                    <a type="button" class="btn btn-secondary col-1 @(Model.PageIndex <= 1 ? "disabled" : "")" title="Previous Page" asp-controller="HistoryCustomer" asp-action="RiwayatKedatangan" asp-route-filter="@ViewBag.Filter" asp-route-pageNumber="@(Model.PageIndex <= 1 ? Model.PageIndex : Model.PageIndex-1)" asp-route-orderBy="@ViewBag.OrderBy" asp-route-currPageSize="@ViewBag.PageSize">
+                    <i class="fas fa-backward"></i>
+                </a>
+                    <div class="bg-light text-center p-2 col-2">Page @Model.PageIndex of @Model.TotalPages</div>
+                    <a type="button" class="btn btn-secondary col-1 @(Model.PageIndex >= Model.TotalPages ? "disabled" : "")" title="Next Page" asp-controller="HistoryCustomer" asp-action="RiwayatKedatangan" asp-route-filter="@ViewBag.Filter" asp-route-pageNumber="@(Model.PageIndex >= Model.TotalPages ? Model.PageIndex : Model.PageIndex+1)" asp-route-orderBy="@ViewBag.OrderBy" asp-route-currPageSize="@ViewBag.PageSize">
+                    <i class="fas fa-forward"></i>
+                </a>
+                <div class="col-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    function toggleDetails(summaryElement) {
+        // Mendapatkan elemen details terkait dengan elemen summary
+        var detailsElement = summaryElement.parentNode;
+
+        // Toggle atribut open pada elemen details
+        detailsElement.open = !detailsElement.open;
+
+        // Mengubah teks pada elemen summary
+        summaryElement.textContent = detailsElement.open ? 'Tutup detail kedatangan' : 'Lihat detail kedatangan';
+    }
+
+    $(".cetakResep").click(function (event) {
+        let resepId = $(this).data("resep");
+        $("#staticModalBody").load("/HistoryCustomer/ValidasiCetakResep/" + resepId);
+    });
+
+    $("#currPageSize").change(function () {
+        location.replace("/HistoryCustomer/RiwayatKedatangan?filter=@ViewBag.Filter&orderBy=@ViewBag.OrderBy&currPageSize=" + $(this).val());
+    });
+</script>
