@@ -1,0 +1,98 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<VMMBloodGroup>?
+@{
+    Layout = "_Layout_E";
+    ViewData["Title"] = "Blood Group Page";
+}
+
+<div class="card">
+    <div class="card-header bg-success h1 text-white">
+        GOLONGAN DARAH
+    </div>
+    <div class="card-body">
+        <div class="d-flex justify-content-between mb-4">
+            <div>
+                <form id="frmFilter" >
+                    <div class="input-group mb-3">
+                        <input id="filter" name="filter" type="text" class="form-control" placeholder="Cari Golongan Darah" value="@ViewBag.Filter">
+                        <button type="submit" class="input-group-text btn btn-success" id="iSearch"><i class="fa-solid fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="">
+                <button class="px-3 py-1 btn btn-success rounded" type="button" data-bs-toggle="modal" data-bs-target="#staticModalE" >TAMBAH</button>
+            </div>
+        </div>
+        <div>
+            <table class="table">
+                <thead class="align-middle text-center">
+                    <tr>
+                        <th>KODE</th>
+                        <th>DESKRIPSI</th>
+                        <th>DIUBAH OLEH</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody class="align-middle text-center">
+                @if(Model != null)
+                {
+                    @foreach (VMMBloodGroup data in Model)
+                    {
+                            <tr>
+                                <td>@data.Code</td>
+                                <td>@(data.Description??"-")</td>
+                                <td>@(data.ModifiedName == null?"-":data.ModifiedName)</td>
+                                <td class="text-center align-middle">
+                                    <button class="btn btn-primary" title="Edit" data-id="@data.Id" data-bs-toggle="modal" data-bs-target="#staticModalE">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-danger" title="Delete" data-id="@data.Id" data-bs-toggle="modal" data-bs-target="#staticModalE">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4">DATA TIDAK DITEMUKAN</td>
+                    </tr>
+                }
+                
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#bc-active").html("Golongan Darah");
+
+    $(".btn-success").click(function (e) {
+        $("#staticModalBodyE").load('/BloodGroup/Add');
+    });
+
+    $(".btn-primary").click(function (event) {
+        let catId = $(this).data("id");
+        $("#staticModalBodyE").load('/BloodGroup/Edit/' + catId);
+    });
+
+    $(".btn-danger").click(function (e) {
+        let catId = $(this).data("id");
+        $("#staticModalBodyE").load('/BloodGroup/Delete/' + catId);
+    });
+
+    $("#frmFilter").submit(function(e){
+        e.preventDefault();
+
+        getFilter = $("#filter").val().toString();
+        console.log(getFilter);
+        if(getFilter=="+"){
+            getFilter = "%2B";
+        }
+        location.replace("/BloodGroup/Index?filter="+getFilter)
+    })
+</script>

@@ -1,0 +1,91 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model VMMProfile?
+@{
+    Layout = null;
+}
+<div class="text-success">
+     <div class="mb-5 ">
+         <div class="d-flex justify-content-between">
+             <p class="h4">Data Pribadi</p>
+            <button id="btn-edit-data-pribadi" class="border-0 bg-white text-success" data-bs-toggle="modal" data-bs-target="#staticModalE" data-id="@Model.Id"><i class="fa-solid fa-pen"></i>  Ubah</button>
+         </div>
+         <div>
+            <div class="mb-3">
+                <label class="fs-5 mb-1 mx-1">Nama Lengkap</label>
+                <input type="text" class="border-0 rounded-0 bg-white border-bottom border-success form-control" name="Fullname" id="fullname" value="@Model.Fullname" disabled required>
+            </div>
+            <div class="mb-3">
+                <label class="fs-5 mb-1 mx-1">Tanggal Lahir</label>
+                <input type="text" class="border-0 rounded-0 bg-white border-bottom border-success form-control" name="Dob" id="dob" value="@(Model.Dob!=null?(Model.Dob)?.ToString("dd MMMM yyyy"):"-")" disabled required>
+            </div>
+            <div class="mb-3">
+                <label class="fs-5 mb-1 mx-1">Nomor Handphone</label>
+                <input type="text" class="border-0 rounded-0 bg-white border-bottom border-success form-control" name="MobilePhone" id="mobilePhone" value="@Model.MobilePhone" disabled required>
+            </div>
+         </div>
+     </div>
+     <div>
+        <div>
+            <p class="h4">Data Akun</p>
+            <div class="mb-3">
+                <div class="d-flex justify-content-between">
+                    <label class="fs-5 mb-1 mx-1">Email</label>
+                    <button id="btn-edit-email" class="border-0 bg-white text-success" data-bs-toggle="modal" data-bs-target="#staticModalE" data-id="@Model.Id"><i class="fa-solid fa-pen"></i>  Ubah</button>
+                </div>
+                <input type="text" class="border-0 rounded-0 bg-white border-bottom border-success form-control" name="Email" id="email" value="@Model.Email" disabled required>
+            </div>
+            <div class="mb-3">
+                <div class="d-flex justify-content-between">
+                    <label class="fs-5 mb-1 mx-1">Password</label>
+                    <button id="btn-edit-password" class="border-0 bg-white text-success" data-bs-toggle="modal" data-bs-target="#staticModalE" data-id="@Model.Id"><i class="fa-solid fa-pen"></i>  Ubah</button>
+                </div>
+                <div class="d-flex justify-content-end align-items-center">
+                    <input type="password" class="border-0 rounded-0 bg-white border-bottom border-success form-control" name="Password" id="password" value="@Model.Password" disabled required>
+                    <button id="btn-1" class="click-see z-index-1 position-absolute bg-white border-0 text-success" data-id="password" onclick="seePassword()">
+                        <i id="eye-icon" class="fa-regular fa-eye"></i>
+                    </button>
+                </div>                
+            </div>
+        </div>
+     </div>
+</div>
+<script>
+
+    $("#btn-edit-data-pribadi").click(function (e) {
+        // console.log("hallo");
+        let catId = $(this).data("id");
+        // console.log(catId);
+        $("#staticModalBodyE").load('/Profile/Edit/'+catId);
+    })
+
+    $("#btn-edit-email").click(function (e) {
+        let catId = $(this).data("id");
+        $("#staticModalBodyE").load('/Profile/UpdateEmail/' + catId);
+    })
+
+    $("#btn-edit-password").click(function (e) {
+        let catId = $(this).data("id");
+        console.log(catId);
+        $("#staticModalBodyE").load('/Profile/UpdatePassword/' + catId);
+    })
+
+    function seePassword(){
+        var idButton = $(".click-see").data("id");
+        
+        var newidButton = $("#" + idButton );
+        console.log(idButton)
+
+        if (newidButton.attr("type") == "password") {
+            newidButton.attr("type", "text");
+            $("#eye-icon").removeClass("fa-eye");
+            $("#eye-icon").addClass("fa-eye-slash");
+        }
+        else {
+            newidButton.attr("type", "password");
+            $("#eye-icon").removeClass("fa-eye-slash");
+            $("#eye-icon").addClass("fa-eye");
+        }
+    }
+</script>

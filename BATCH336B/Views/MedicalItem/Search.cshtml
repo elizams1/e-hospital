@@ -1,0 +1,106 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+<div class="card border-0">
+    <div class="card-body pt-1">
+        <div class="mb-3">
+            <span class="text-success"><b>Masukan minimal 1 kata kunci untuk pencarian Anda</b></span>
+        </div>
+
+        <form id="frmSearchMedItem" asp-controller="MedicalItem" asp-action="FilteredItem">
+            <div class="form-group mb-3">
+                <label class="mb-2">Kategori </label>
+                <select name="cat" id="meditemcatid" class="w-100 p-2 rounded-2">
+                    <option value="">-- Pilih Kategori --</option>
+                    @foreach (VMMMedicalItemCategory data in ViewBag.MedItemCat)
+                    {
+                        <option value="@data.Name">@data.Name</option>
+                    }
+                </select>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label class="mb-2">Kata Kunci <span class="text-danger">*</span></label>
+                <input required type="text" name="filter" value="@ViewBag.Filter" class="p-2 form-control" placeholder="Nama obat atau indikasi" />
+            </div>
+
+            <div class="form-group mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Segmen" value="bebas" id="flexRadioDefault1" checked>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Hanya cari obat bebas (tanpa resep)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Segmen" value="" id="flexRadioDefault2">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Semua obat (termasuk obat keras)
+                    </label>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="mb-2"> Harga </label>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <input type="text" name="minPrice" value="@ViewBag.MinPrice" class="p-2 form-control" placeholder="Rp 0" style="width:150px;"/>
+                    </div>
+                    <div>
+                        sampai
+                    </div>
+                    <div>
+                        <input type="text" name="maxPrice" value="@ViewBag.MaxPrice" class="p-2 form-control" placeholder="Rp 100000" style="width:150px;" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer bg-transparent">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <button class="btn btn-outline-success py-1" id="iReset" style="width:110px;"> Atur Ulang </button>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-success py-1" id="iSearch" style="width:110px;"> Cari </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $("#staticModalLabel").html("@ViewBag.Title");
+
+    $("#iSearch").click(function (e) {
+        location.reload("MedicalItem/FilteredItem");
+    });
+
+    $("#iReset").click(function (e) {
+        $("input[name='filter']").val("");
+        $("#flexRadioDefault1").prop("checked", true);
+        $("#meditemcatid").val("");
+
+        $("input[name='minPrice']").val("");
+        $("input[name='maxPrice']").val("");
+    });
+
+    $("#frmSearchMedItem").validate({
+        errorClass: "text-danger col-12",
+        errorLabelContainer: "#errorContainer",
+        rules: {
+            filter: {
+                "required": true
+            }
+        },
+        messages: {
+            filter: {
+                "required": "masukkan kata kunci!"
+            }
+        }
+    });
+
+
+</script>

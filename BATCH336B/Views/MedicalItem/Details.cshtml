@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model VMMMedicalItem?
+@{
+    Layout = null;
+}
+<div class="card">
+    <div class="card-body">
+        @if (Model != null)
+        {
+            <div class="row">
+                <h6><b>@Model.Name</b></h6>
+                <span>@Model.Packaging</span>
+                <p>Rp @Model.PriceMin - Rp @Model.PriceMax</p>
+                <br />
+                <p>@Model.Indication</p>
+            </div><hr />
+
+            <div class="row">
+                <div class="col-3 bg-light">Kategori</div>
+                <div class="col-9 bg-light">: @Model.MedicalItemCategoryName</div>
+
+                <div class="col-3 bg-light">Golongan</div>
+                <div class="col-9 bg-light">: @Model.MedicalItemSegmentationName</div>
+            </div> <hr />
+
+            <div class="row">
+                <div class="col-3 bg-light">Komposisi</div>
+                <div class="col-9 bg-light">: @Model.Composition</div>
+
+                <div class="col-3 bg-light">Manufaktur</div>
+                <div class="col-9 bg-light">: @Model.Manufacturer</div>
+
+                <div class="col-3 bg-light">Dosis</div>
+                <div class="col-9 bg-light">: @Model.Dosage</div>
+
+                <div class="col-3 bg-light">Petunjuk Pemakaian</div>
+                <div class="col-9 bg-light">: @Model.Directions</div>
+
+                <div class="col-3 bg-light">Kontraindikasi</div>
+                <div class="col-9 bg-light">: @Model.Contraindication</div>
+
+                <div class="col-3 bg-light">Bahaya</div>
+                <div class="col-9 bg-light">: @Model.Caution</div>
+             </div> <hr />
+             @* 
+
+             <div class="row">
+                 <div class="col-2 bg-light">Create By</div>
+                 <div class="col-4 bg-light">@Model.CreatedBy</div>
+                 <div class="col-2 bg-light">Update By</div>
+                 <div class="col-4 bg-light">@Model.UpdatedBy</div>
+             </div>
+
+             <div class="row">
+                 <div class="col-2 bg-light">Create Date</div>
+                 <div class="col-4 bg-light">@Model.CreatedOn?.ToString("dd-MMM-yyyy HH:mm:ss")</div>
+                 <div class="col-2 bg-light">Update Date</div>
+                 <div class="col-4 bg-light">@Model.UpdatedDate?.ToString("dd-MMM-yyyy HH:mm:ss")</div>
+             </div> *@
+        }
+        else
+        {
+            <div class="row">
+                -- Tidak ada Data --
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    $("#staticModalLgLabel").html("@ViewBag.Title");
+</script>

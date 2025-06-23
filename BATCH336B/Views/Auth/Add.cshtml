@@ -1,0 +1,657 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+
+<!-- MODAL 1 SET EMAIL-->
+<div class="card" id="modalRegistCheckEmail">
+    <div class="card-body">
+        <div class="h5">Hallo Guest!</div>
+        <p>Please enter the email you want to register, we will first check whether this email has been registered or not!</p>
+        <label class="form-label" for="inputEmail">Email<span class="text-danger">*</span></label>
+        <form id="frmEmail">
+            <div class="mb-3 row text-end">
+                <div class="col-10 text-end">
+                    <input type="email" class="form-control" id="inputEmail" name="Email" />
+                </div>
+                <div class="col-2">
+                    <button id="btnCekEmail" class="btn btn-warning">check</button>
+                </div>
+            </div>
+        </form>
+        <div><ul class="txtAlert" id="errorCheckEmail"></ul></div>
+        <div id="alertCekEmail"></div>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-success disabled" id="btnNextRegist1" href="#modalRegistOtp" role="button">Send OTP</a>
+        <button id="btnLoad" class="btn btn-success d-none text-end" type="button" disabled>
+            <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+            <span role="status">Loading...</span>
+        </button>
+    </div>
+</div>
+
+
+<!-- MODAL 2 OTP-->
+<div class="card d-none" id="modalRegistOtp">
+    <div class="card-header">
+        <div class="h5">Verifikasi E-Mail!</div>
+    </div>
+    <div class="card-body">
+        <div class="mb-3">Enter the OTP code that has been sent to your email</div>
+        <div class="input-group mb-3">
+            <input required type="number" class="form-control" id="kodeOtp" name="Email" placeholder="KODE OTP">
+            <button class="btn btn-warning disabled" id="btnVerifOtp">Verifikasi OTP</button>
+        </div>
+        <div id="alertCekOtp"></div>
+        <div class="text-center">
+            <a id="resendOtpCountdown" class="btn btnSendOtp d-none disabled">Kirim ulang kode OTP <span id="timer">03:00</span></a>
+        </div>
+        <div class="text-center">
+            <button id="btnSendOtp" class="btn btn-success btnSendOtp">Kirim OTP</button>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-success disabled" id="btnNextRegist2" href="#modalRegistPassword" role="button">Next</a>
+        <button id="btnLoad2" class="btn btn-success d-none text-end" type="button" disabled>
+            <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+            <span role="status">Loading...</span>
+        </button>
+    </div>
+</div>
+
+
+<!-- MODAL 3 PASSWORD-->
+<div class="card d-none" id="modalRegistPassword">
+    <div class="card-header">
+        <div class="h5">Create Password!</div>
+    </div>
+    <form id="frmPassword">
+        <div class="card-body">
+            <div class="mb-3">
+                <label class="form-label" for="inputPassword">Password<span class="text-danger">*</span></label>
+                <input required type="password" class="form-control" id="inputPassword" name="Password" />
+            </div>
+            <div class="progress mb-3" role="progressbar" aria-label="Animated striped example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-animated" id="power-point" style="width: 0%">Full Progress Level Password</div>
+            </div>
+            <div><ul class="txtAlert" id="errorCheckPassword"></ul></div>
+            <hr />
+            <div class="mb-3">
+                <label class="form-label" for="ulangiPassword">Re-Password<span class="text-danger">*</span></label>
+                <input required type="password" class="form-control" id="ulangiPassword" name="ConfirmPassword" />
+            </div>
+            <div><ul class="txtAlert" id="errorCheckRePassword"></ul></div>
+            <hr />
+            
+        </div>
+    </form>
+    <div class="card-footer">
+        <a class="btn btn-success" id="btnNextRegist3" href="#modalRegistBiodata" role="button">Next</a>
+        <button id="btnLoad3" class="btn btn-success d-none text-end" type="button" disabled>
+            <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+            <span role="status">Loading...</span>
+        </button>
+    </div>
+</div>
+
+<!-- MODAL 4 DATA DIRI-->
+<div class="card d-none" id="modalRegistBiodata">
+    <div class="card-header">
+        <div class="h5">Biodata!</div>
+    </div>
+    <form id="frmBiodata">
+        <div class="card-body">
+            <div class="mb-3">
+                <label class="form-label" for="inputNama">Full Name<span class="text-danger">*</span></label>
+                <input required type="text" class="form-control" id="inputNama" name="Name" />
+            </div>
+            <div><ul class="txtAlert" id="errorCheckBiodataName"></ul></div>
+            <label class="form-label" for="inputEmail">Phone</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">+62</span>
+                <input type="tel" id="inputPhone" name="PhoneNumber" class="form-control" minlength="10" maxlength="14" pattern="[0-9]{1,}" placeholder="85210192202">
+            </div>
+            <div><ul class="txtAlert" id="errorCheckBiodataPhone"></ul></div>
+            <div class="mb-3">
+                <label class="form-label" for="inputEmail">Role</label>
+                <select class="form-select" name="RoleId" id="inputRole">
+                    <option value="">--pilih--</option>
+                    <option value="1">Admin</option>
+                    <option value="2">Doctor</option>
+                    <option value="3">Faskes</option>
+                    <option value="4">Pasien</option>
+                </select>
+            </div>
+        </div>
+    </form>
+    <div class="card-footer">
+        <a class="btn btn-success btnSubmit" id="btnSubmit" role="button">Daftar</a>
+        <button id="btnLoad4" class="btn btn-success d-none text-end" type="button" disabled>
+            <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+            <span role="status">Loading...</span>
+        </button>
+    </div>
+</div>
+
+<script>
+    $("#staticModalLabel").html("@ViewBag.Title");
+
+    $("#btnNextRegist1").click(function (event) {
+        let email = $("#inputEmail").val();
+
+        $.ajax({
+            url: "/Auth/SendEmail/",
+            type: "post",
+            dataType: "json",
+            data: { "email": email },
+            beforeSend: () => { 
+                $("#btnSendOtp").addClass("disabled");
+                $("#resendOtpCountdown").removeClass("d-none");
+
+                $("#btnLoad").removeClass('d-none');
+                $("#btnNextRegist1").addClass('d-none');
+            },
+            success: function (response) {
+                if (response.statusCode == 200 || response.statusCode == 201) {
+                    setTimeout(function () {
+                        Swal.fire(
+                            'Success!',
+                            'OTP code has been sent!',
+                            'success'
+                        ),
+                            // alertOtp(response.message, 'success');
+                            // $("#btnVerifOtp").removeClass('disabled'); //
+                        $("#modalRegistOtp").removeClass('d-none');
+                        $("#modalRegistCheckEmail").addClass('d-none');
+                    }, 2000)
+                }
+                else {
+                    setTimeout(function () {
+                        Swal.fire(
+                            'Failed!',
+                            response.message,
+                            'danger'
+                        )
+                    }, 2000)
+                    // alertOtp(response.message, 'danger');
+                }
+            },
+            error: function (errResponse) {
+            }
+        })
+    });
+
+    //validasi email
+    $("#frmEmail").validate({
+        errorClass: "text-danger ms-2 my-auto",
+        errorLabelContainer: "#errorCheckEmail",
+        wrapper: "li",
+        rules: { Email: { "required": true } },
+        messages: { Email: { "required": "Email must be filled in" } }
+    })
+        
+    //check email
+    $("#btnCekEmail").click(function (e) {
+        e.preventDefault();
+        $("#btnCekEmail").addClass("disabled");
+
+        setTimeout(function () {
+            $("#btnCekEmail").removeClass("disabled");
+        }, 3500);
+
+        let email = $("#inputEmail").val();
+        if ($("#frmEmail").valid()) {
+            $.ajax({
+                url: "/Auth/CheckEmail",
+                type: "post",
+                dataType: "json",
+                data: { "data": email },
+                beforeSend: () => { },
+                success: function (response) {
+                    if (response.statusCode == 200) {
+                        alertRegist(response.message,'success');
+                        $("#btnNextRegist1").removeClass("disabled");
+                    }
+                    else {
+                        alertRegist('Email is already registered, please register with another email!', 'danger');
+                        $("#btnNextRegist1").addClass("disabled");
+                    }
+                },
+                error: function (errResponse) {
+
+                }
+            })
+        }
+
+    });
+
+    //btn Verifikasi disabled or offdisabled
+    let kodeOtp = document.getElementById("kodeOtp");
+    kodeOtp.oninput = function () {
+        let inputValue = kodeOtp.value;
+
+        if(inputValue.trim() !== "" || inputValue.trim() !== null)
+        {
+            $("#btnVerifOtp").removeClass("disabled");
+        }
+        if (inputValue.trim() == "" || inputValue.trim() == null) 
+        {
+            $("#btnVerifOtp").addClass("disabled");
+        }
+    }
+
+    //send otp
+    $("#btnSendOtp").click(function (e) {
+        let email = $("#inputEmail").val();
+        $.ajax({
+            url: "/Auth/SendEmail/",
+            type: "post",
+            dataType: "json",
+            data: { "email": email },
+            beforeSend: () => { },
+            success: function (response) {
+                if (response.statusCode == 200 || response.statusCode == 201) {
+                    setTimeout(function () {
+                        Swal.fire(
+                            'Success!',
+                            'OTP code has been sent!',
+                            'success'
+                        )
+                        // alertOtp(response.message, 'success');
+                    },2000)
+                }
+                else {
+                    setTimeout(function () {
+                        Swal.fire(
+                            'Failed!',
+                            response.message,
+                            'danger'
+                        )
+                    }, 2000)
+                    // alertOtp(response.message, 'danger');
+
+                }
+            },
+            error: function (errResponse) {
+            }
+        })
+        $("#btnSendOtp").addClass("disabled");
+        $("#resendOtpCountdown").removeClass("d-none");
+    });
+
+    //timer
+    $("#btnNextRegist1").click(function () {
+        var time = 180; // Waktu tunggu dalam detik
+        var resendButton = $('#btnSendOtp');
+        var timerElement = $('#timer');
+
+        // Fungsi untuk memperbarui waktu pada timer
+        var updateTimer = function (seconds) {
+            //mengambil menit dari detik
+            var minutes = Math.floor(seconds / 60);
+            //mengambil sisa detik dari modulus 60
+            var seconds = seconds % 60;
+
+            //menambahkan nilai 0 didepan angka cnt: 01 - 09.
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            //Update UI timer
+            timerElement.text(minutes + ":" + seconds);
+        };
+
+        // Fungsi untuk mengatur ulang dan memulai timer
+        var startTimer = function (duration) {
+            var timer = duration, minutes, seconds;
+            var interval = setInterval(function () {
+                updateTimer(timer);
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    resendButton.removeClass("disabled") // Mengaktifkan kembali tombol
+                    timerElement.text("");
+                }
+            }, 1000);
+        };
+
+        // Mengaktifkan timer ketika halaman dimuat
+        startTimer(time);
+    });
+
+    //timer
+    $("#btnSendOtp").click(function () {
+        var time = 180; // Waktu tunggu dalam detik
+        var resendButton = $('#btnSendOtp');
+        var timerElement = $('#timer');
+
+        // Fungsi untuk memperbarui waktu pada timer
+        var updateTimer = function (seconds) {
+            //mengambil menit dari detik
+            var minutes = Math.floor(seconds / 60);
+            //mengambil sisa detik dari modulus 60
+            var seconds = seconds % 60;
+
+            //menambahkan nilai 0 didepan angka cnt: 01 - 09.
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            //Update UI timer
+            timerElement.text(minutes + ":" + seconds);
+        };
+
+        // Fungsi untuk mengatur ulang dan memulai timer
+        var startTimer = function (duration) {
+            var timer = duration, minutes, seconds;
+            var interval = setInterval(function () {
+                updateTimer(timer);
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    resendButton.removeClass("disabled") // Mengaktifkan kembali tombol
+                    timerElement.text("");
+                }
+            }, 1000);
+        };
+
+        // Mengaktifkan timer ketika halaman dimuat
+        startTimer(time);
+    });
+
+
+    //VerifOTP
+    $("#btnVerifOtp").click(function (e) {
+        let otp = $("#kodeOtp").val();
+        let email = $("#inputEmail").val();
+        $("#btnVerifOtp").addClass("disabled");
+
+        setTimeout(function () {
+            $("#btnVerifOtp").removeClass("disabled");
+        }, 3500);
+
+        $.ajax({
+            url: "/Auth/VerifikasiOtp/",
+            type: "post",
+            dataType: "json",
+            data: { "inputOtp": otp,
+                    "email": email
+            },
+            beforeSend: () => { },
+            success: function (response) {
+                if (response.statusCode == 200) {
+                    alertOtp(response.message, 'success');
+
+                    $("#btnNextRegist2").removeClass("disabled");
+                }
+                else if (response.statusCode == 204) {
+                    alertOtp(response.message, 'danger');
+
+                }
+                else if (response.statusCode == 404) {
+                    alertOtp(response.message, 'danger');
+
+                }
+            },
+            error: function (errResponse) {
+            }
+        })
+    });
+
+    $("#btnNextRegist2").click(function (event) {
+        $("#btnLoad2").removeClass('d-none');
+        $("#btnNextRegist2").addClass('d-none');
+        setTimeout(function () {
+            $("#modalRegistPassword").removeClass('d-none');
+            $("#modalRegistOtp").addClass('d-none');
+        }, 2000);
+    });
+
+
+    //Validasi Password
+    $("#frmPassword").validate({
+        errorClass: "text-danger my-auto",
+        wrapper: "li",
+        rules: {
+            Password: {
+                "required": true,
+                "strongPassword": true
+            },
+            ConfirmPassword: {
+                "required": true,
+                "validatePassword": true
+            }
+        },
+        messages: {
+            Password: {
+                "required": "Password must be filled in!"
+            },
+            ConfirmPassword: {
+                "required": "Repeat password must be filled in!"
+            }
+        },
+        errorPlacement: function (error, element) {
+            if (element.attr("name") === "Password") {
+                error.appendTo("#errorCheckPassword"); 
+            } else {
+                error.appendTo("#errorCheckRePassword");
+            }
+        }
+    });
+
+    $.validator.addMethod(
+        "strongPassword",
+        function (val, el) {
+            return (/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@@!#$%&])(.{8,20})$/.test(val));
+        },
+        function (cRespon, el) {
+            let pass = $(el).val();
+            let txtAlert = "";
+            // Misalkan Anda memiliki beberapa elemen dengan kelas "txtAlert"
+            var txtAlertElements = document.querySelectorAll('.txtAlert');
+
+            // Loop melalui setiap elemen dan mengubah properti style
+            txtAlertElements.forEach(function (element) {
+                element.style.listStyleType = 'none';
+            });
+
+            if (!(/^(?=.*[!@@#$%&])/.test(pass))) {
+                txtAlert += "Password must contains special characters <br>";
+            }
+            if (!(/^(?=.*[a-z])/.test(pass))) {
+                txtAlert += "Password must have lowercase characters <br>";
+            }
+            if (!(/^(?=.*[A-Z])/.test(pass))) {
+                txtAlert += "Password must have uppercase characters <br>";
+            }
+            if (!(/^(?=.*[0-9])/.test(pass))) {
+                txtAlert += "Password must have a number <br>";
+            }
+            if (!(/^(.{8})/.test(pass))) {
+                txtAlert += "Password must be min 8 characters <br>";
+            }
+
+            if (txtAlert == "") {
+                return txtAlert;
+            }
+            else {
+                return txtAlert;
+            }
+        }
+    );
+    
+    $.validator.addMethod(
+        "validatePassword",
+        function (val, el) {
+            return val === $("#inputPassword").val();
+        },
+        "Password doesn't match!"
+    )
+
+    let password = document.getElementById("inputPassword");
+    let power = document.getElementById("power-point");
+
+    password.oninput = function () {
+
+        let point = 0;
+        let value = password.value;
+        let widthPower =
+            ["1%", "20%", "40%", "60%", "80%", "100%"];
+        let colorPower =
+            ["#D73F40", "#DC6551", "#F2B84F", "#BDE952", "#3ba62f"];
+
+        if ((/^(.{8})/.test(value))) {
+            point += 1;
+        }
+        let arrayTest =
+            [/[0-9]/, /[a-z]/, /[A-Z]/, /[!@@#$%&]/];
+        arrayTest.forEach((item) => {
+            if (item.test(value)) {
+                point += 1;
+            }
+
+        });
+
+
+        power.style.width = widthPower[point];
+        power.style.backgroundColor = colorPower[point];
+    };
+
+    $("#btnNextRegist3").click(function (event) {
+        if ($("#frmPassword").valid()) {
+            
+            $("#btnLoad3").removeClass('d-none');
+            $("#btnNextRegist3").addClass('d-none');
+            setTimeout(function () {
+                $("#modalRegistBiodata").removeClass('d-none');
+                $("#modalRegistPassword").addClass('d-none');
+            }, 2000);
+
+        }
+    });
+
+    var teleponInput = document.getElementById("inputPhone");
+
+    // Tambahkan event listener untuk event input
+    teleponInput.oninput = function () {
+        var inputValue = teleponInput.value;
+
+        var nilaiInput = inputValue.replace(/[^0-9 \-]/g, "");
+
+        //inputan pertama tidak boleh
+        if (nilaiInput.length > 0 && nilaiInput.charAt(0) === '0' ||
+            nilaiInput.length > 0 && nilaiInput.charAt(0) === '-' ||
+            nilaiInput.length > 0 && nilaiInput.charAt(0) === ' '
+        ) {
+            nilaiInput = nilaiInput.slice(1);
+            teleponInput.value = nilaiInput;
+        }
+        teleponInput.value = nilaiInput;
+
+        // // Pastikan panjang nilai input tidak melebihi panjang maksimum (11 digit)
+        // if (nilaiInput.length <= 11) {
+        //     // Format ulang nilai input dengan spasi
+        //     var formattedValue = nilaiInput.replace(/(\d{3})(\d{4})(\d{4})/, "$1 $2 $3");
+
+        //     // Set nilai input dengan format yang diinginkan
+        //     teleponInput.value = formattedValue;
+        // }
+        // if (nilaiInput.length > 11) {
+        //     // Format ulang nilai input dengan spasi
+        //     var formattedValue = nilaiInput.replace(/(\d{1,13})/, "$1");
+
+        //     // Set nilai input dengan format yang diinginkan
+        //     teleponInput.value = formattedValue;
+        // }
+    };
+
+    // $.validator.addMethod("validPhoneNumber",
+    //     function (value, el) {
+    //         return (/^(?:\8)[1-9]\d{7,10}$/.test(value));
+
+    //     },
+    //     "Phone number not valid"
+    // );
+
+    //Validasi Biodata
+    $("#frmBiodata").validate({
+        errorClass: "text-danger my-auto",
+        wrapper: "li",
+        rules: {
+            Name: {
+                "required": true
+            }
+        },
+        messages: {
+            Name: {
+                "required": "Name must be filled in!"
+            }
+        },
+        errorPlacement: function (error, element) {
+            if (element.attr("name") === "Name") {
+                error.appendTo("#errorCheckBiodataName");
+            } else {
+                error.appendTo("#errorCheckBiodataPhone");
+            }
+        }
+    });
+
+    //submit process
+    $(".btnSubmit").click(function (e) {
+        let email = $("#inputEmail").val();
+        let password = $("#inputPassword").val();
+        let nama = $("#inputNama").val();
+        let phone = $("#inputPhone").val();
+        let role = $("#inputRole").val();
+
+        if ($("#frmBiodata").valid()) {
+
+            $.ajax({
+                url: "/Auth/Add",
+                type: "post",
+                dataType: "json",
+                data: {
+                    "Biodatum": {
+                        "Fullname": nama,
+                        "MobilePhone": 0+phone,
+                        "CreateBy": -1
+                    },
+                    "User": {
+                        "Email": email,
+                        "Password": password,
+                        "RoleId": role
+                    }
+                },
+                beforeSend: () => {
+                    $("#btnSubmit").addClass("d-none");
+                    $("#btnLoad4").removeClass("d-none");
+                },
+                success: function (response) {
+                    if (response.statusCode == 200 || response.statusCode == 201) {
+
+                        setTimeout(function () {
+                            Swal.fire(
+                                'Success!',
+                                'Add new Vaccount Successed!',
+                                'success'
+                            )
+                            location.reload();
+                        }, 2000);
+                    }
+                    else {
+                        Swal.fire(
+                            'Danger!',
+                            'Add new Vaccount Failed!',
+                            'danger'
+                        )
+                        // alert("Fail Regist");
+                    }
+                },
+                error: function (errResponse) {
+                    debugger;
+                }
+            })
+        }
+    })
+</script>

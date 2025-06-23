@@ -1,0 +1,111 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model VMMCourier?
+@{
+    Layout = null;
+}
+<div class="=card">
+    <div class="card-body">
+        <form id="frmCourier" asp-controller="Courier" asp-action="Add">
+            <input type="hidden" name="CreatedBy" value="1" />
+            <div class="form-group">
+                <label for="name">Nama<b class="text-danger">*</b></label>
+                <input required type="text" class="form-control" id="Nama" name="Nama" placeholder="Masukan Nama Courier">
+            </div>
+            <hr>
+            <div>
+                <ul id="errorContainer"></ul>
+            </div>
+            <div class="=card-footer">
+                <button class="btn btn-danger" id="btnConfirm">Simpan</button>
+                <button class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Batal</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    $("#staticModalLabel").html("@ViewBag.Title")
+
+    $.validator.addMethod(
+        "strongnama",
+        function (val, el) {
+            debugger
+            return !(/^(?=.*[0-9])/.test(val)) && !(/^(?=.*[@@#$%&?|><\-.,!#+_{}])/.test(val))
+        },
+        function (chckRes, el) {
+            let nam = $(el).val();
+            let txtAlert = "";
+            debugger
+            if ((/^(?=.*[0-9])/.test(nam)) || (/^(?=.*[@@#$%&?\-|><.,!#+_{}])/.test(nam))) {
+                txtAlert += "Jangan ada angka dan karakter"
+            }
+            if (txtAlert == "") {
+                return false;
+            }
+            else {
+                return txtAlert
+            }
+        }
+    )
+
+    $("#frmCourier").validate({
+        errorClass: "text-danger",
+        errorLabelContainer: "#errorContainer",
+        wrapper: "li",
+        rules: {
+            Nama: {
+                "minlength": 2,
+                "maxlength": 100,
+                "strongnama": true
+            }
+        },
+        message: {
+            Nama: {
+                "required": "Masukan Nama Courier !",
+                "minlength": "Harus lebih dari dua huruf "
+            }
+        }
+    });
+
+    $("#frmCourier").submit(function (event) {
+        event.preventDefault();
+
+        if ($("#frmCourier").valid()) {
+           
+
+            $.ajax({
+                url: '/Courier/Add',
+                type: 'post',
+                data: $("#frmCourier").serialize(),
+                dataType: 'json',
+                beforeSend: function () {
+                    //proses before send data
+
+                },
+                success: function (response) {
+                    debugger;
+                    if (response.statusCode == 200 || response.statusCode == 201) {
+                        location.reload();
+
+                        alert("Courier berhasil dibuat...");
+                    }
+                    else {
+                        alert(response.message);
+                    }
+
+                },
+                error: function (errResponse) {
+                   console.log("Error")
+                    debugger;
+                }
+            });
+        }
+
+        return false;
+
+    });
+
+</script>

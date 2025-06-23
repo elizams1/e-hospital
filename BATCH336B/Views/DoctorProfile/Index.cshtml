@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div>
+    <button id="btn-buat-janji" data-id="1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticModalE">
+        Buat Janji Cari Dokter
+    </button>
+    
+    <button id="btn-buat-janji-dedok" data-id="2" data-faskes="5" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticModalE">
+        Buat Janji Detail Dokter
+    </button>
+</div>
+
+<script>
+    $("#btn-buat-janji").click(function(e){
+        let theId = $("#btn-buat-janji").data("id");
+        let userId = "@ViewBag.User";
+        console.log(userId);
+
+        if (userId == "") {
+            $("#staticModalBodyE").load('/DoctorProfile/Login');
+        } 
+        else {
+            $("#staticModalBodyE").load('/DoctorProfile/BuatJanji/' + theId);
+        }
+        
+    })
+    $("#btn-buat-janji-dedok").click(function (e) {
+        let theId = $("#btn-buat-janji-dedok").data("id");
+        let theFaskes = $("#btn-buat-janji-dedok").data("faskes");
+        let userId = "@ViewBag.User";
+        console.log(userId);
+
+        if (userId == "") {
+            $("#staticModalBodyE").load('/DoctorProfile/Login');
+        }
+        else {
+            $("#staticModalBodyE").load("/DoctorProfile/BuatJanji?id=" + theId + "&faskesId=" + theFaskes);
+        }
+    })
+</script>
+
