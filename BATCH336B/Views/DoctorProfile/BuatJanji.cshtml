@@ -1,0 +1,398 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model VMDoctorProfile?
+@{
+    Layout = null;
+}
+<form id="frm-buat-janji" class="">
+    <div>
+        <input type="hidden" name="DoctorId" value="@Model.Id" />
+        <input type="hidden" name="CreatedBy" value="@ViewBag.Customer.Id" />
+        <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="w-25">
+                <img src="/@ViewBag.ImgFolder/@(Model.ImagePath ==null ? "image-empty.png" : Model.ImagePath )" class="object-fit-cover rounded-circle" style="
+                width: 110px;
+                height: 110px;
+            " />
+            </div>
+            <div class="w-75">
+                <p class="h4">@Model.Fullname</p>
+                <p class="mb-0">@Model.Name</p>
+                <p>@ViewBag.Year Tahun @ViewBag.Month Bulan Pengalaman</p>
+            </div>
+        </div>
+        <div class="mt-3 px-3">
+            <div class="mb-3">
+                <label class=" mb-1 mx-1">Konsultasi Untuk <span class="text-danger"> *</span></label>
+                <select class="col-9 form-select" name="CustomerId" id="customerId" required>
+                    
+                    <option value="" selected>--Pilih Pasien--</option>
+                    <option value="@ViewBag.Customer.Id">@ViewBag.Customer.Fullname</option>
+                    @foreach (VMCustomerMember custMem in ViewBag.Customer.CustomerMembers)
+                    {
+                        <option value="@custMem.CustomerId">@custMem.Fullname , @custMem.Name</option>
+                    }
+                </select>
+                <div class="d-none text-danger fst-italic px-2 pb-2" id="errorCustomer">Pasien telah buat janji pada tanggal dan waktu tersebut!</div>
+            </div>
+            <div class="mb-3">
+                <label class=" mb-1 mx-1">Faskes <span class="text-danger"> *</span></label>
+                <select class="col-9 form-select" name="DoctorOfficeId" id="faskesId" required>
+                    @if(Model.DoctorOffice.Count == 1)
+                    {
+                        @foreach (VMDoctorOffice dOff in Model.DoctorOffice)
+                        {
+                            if( dOff.EndDate == null || dOff.EndDate >= DateTime.Now )
+                            {
+                                <option value="@dOff.Id" selected>@dOff.Name</option>
+                            }
+                            else{
+                                <option value="" selected>--Tidak Ada Pilihan Faskes--</option>
+                            }
+                        }
+                    }
+                    else if(Model.DoctorOffice.Count == 0)
+                    {
+                        <option value="" selected>--Tidak Ada Pilihan Faskes--</option>
+                    }
+                    else
+                    {
+                        <option value="" selected>--Pilih Faskes--</option>
+                        @foreach (VMDoctorOffice dOff in Model.DoctorOffice)
+                        {
+                            if (dOff.EndDate == null || dOff.EndDate >= DateTime.Now)
+                            {
+                                <option value="@dOff.Id" >@dOff.Name</option>
+                            }
+                        }
+                    }
+                    
+                </select>
+                <div class="d-none text-danger fst-italic px-2 pb-2" id="errorContainer2"></div>
+            </div>
+
+            <div class="mb-3">
+                <label class="mb-1 mx-1">Tanggal <span class="text-danger"> *</span> </label>
+                <input type="date" class=" form-control" name="AppointmentDate" id="tanggalKedatangan" value="" min="@DateTime.Now.ToString("yyyy-MM-dd")" disabled required>
+            </div>
+
+            <div class="mb-3">
+                <label class=" mb-1 mx-1">Waktu Kedatangan <span class="text-danger"> *</span></label>
+                <select class="col-9 form-select" name="DoctorOfficeScheduleId" id="timeArrival" disabled required>
+                    <option value="" selected>--Pilih Waktu Kedatangan--</option>
+                </select>
+                <div class="d-none text-danger fst-italic px-2 pb-2" id="errorContainer2"></div>
+            </div>
+
+            <div class="mb-3">
+                <label class=" mb-1 mx-1">Tindakan Dokter</label>
+                <select class="col-9 form-select" name="DoctorOfficeTreatmentId" id="treatment" disabled>
+                    <option value="" selected>--Pilih Tindakan Dokter--</option>
+                </select>
+                <div class="d-none text-danger fst-italic px-2 pb-2" id="errorContainer2"></div>
+            </div>
+
+        </div>
+        <div style="
+    margin-top: 100px;
+">
+            <div class="d-flex justify-content-center">
+                <button type="button" class="input-group-text btn border-danger text-danger mx-3" id="btnCancel" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i>  Batal</button>
+                <button type="submit" class="input-group-text btn btn-success" id="btnSubmit"><i class="fa-solid fa-floppy-disk"></i>  Buat Janji</button>
+                
+            </div>
+        </div>
+    </div>
+</form>
+
+<div id="page-load" class="d-none">
+    <p>Mohon menunggu, kami sedang mengcek ketersediaan waktu konsultai</p>
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+        </div>
+    </div>
+</div>
+
+<div id="failed-load" class="d-none">
+    <p>Mohon maaf , waktu kedatangan yang anda pilih sudah terisi penuh. Silahkan pilih waktu kedatangan atau faskes yang lain</p>
+    <div class="d-flex justify-content-center">
+        <button type="button" class="input-group-text btn border-danger text-danger mx-3" id="btnCancelJadwal" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i>  Batal</button>
+        <button type="submit" class="input-group-text btn btn-success" id="btnPilihJadwalLain"><i class="fa-solid fa-floppy-disk"></i>  Pilih Jadwal Lain</button>
+    </div>
+</div>
+
+<div id="success-load" class="d-none">
+    <p>Rencana kedatangan anda sudah tersimpan. Anda dapat mengubah atau membatalkan janji Anda di Rencana Kedatangan</p>
+</div>
+
+<script>
+    $("#staticModalLabelE").html("@ViewBag.Title");
+    
+    if ($("#faskesId").val() != "") {
+        $("#tanggalKedatangan").removeAttr("disabled");
+        $("#timeArrival").removeAttr("disabled");
+        $("#treatment").removeAttr("disabled");
+        let fasId = $("#faskesId").val();
+        $.ajax({
+            url: '/DoctorProfile/GetTreatmentById',
+            data: { id: "@Model.Id", catId: fasId },
+            dataType: 'json',
+            success: function (response) {
+                console.log(response);
+                // debugger;
+                if (response.length > 0) {
+                    $("#treatment").empty();
+                    $("#treatment").append(`<option value=""></option>`);
+
+                    $.each(
+                        response,
+                        function (idx, data) {
+                            $("#treatment").append(`<option value="${data.id}">${data.name} </option>`);
+                        }
+                    );
+                }
+                else {
+                    // alert("Variant with Category id = " + catId + "Can not be found");
+                    $("#treatment").empty();
+                    
+                }
+
+            },
+            error: function (errResponse) {
+                debugger;
+            }
+        })
+    }
+   
+    $("#frm-buat-janji").validate({
+        errorClass:"text-danger fst-italic",
+        messages: {
+            CustomerId:{
+                "required":"Pilih pasien !"
+            },
+            DoctorOfficeId: {
+                "required":"Pilih Fasilitas Kesehatan!"
+            },
+            AppointmentDate:{
+                "required":"Harus memilih Tanggal!",
+                "min": "Masukkan tanggal tidak kurang dari hari ini!"
+            },
+            DoctorOfficeScheduleId: {
+                "required":"Harus memilih waktu kedatangan!"
+            }
+        }
+    })
+
+    $("#frm-buat-janji").submit(function(e){
+        e.preventDefault();
+        if ($("#frm-buat-janji").valid()) {
+            $.ajax({
+                url:'/DoctorProfile/Create',
+                type:'post',
+                data: $("#frm-buat-janji").serialize(),
+                dataType:'json',
+                beforeSend: function(){
+                    $("#frm-buat-janji").addClass("d-none");
+                    $("#page-load").removeClass("d-none");
+                },
+                success: function (response) {
+                    if (response.statusCode == 200 || response.statusCode == 201) {
+                        
+                        // location.replace('/DoctorProfile/Index');
+                        $("#page-load").addClass("d-none");
+                        $("#success-load").removeClass("d-none");
+                        
+                    }
+                    else if(response.statusCode==300){
+                        $("#page-load").addClass("d-none");
+                        $("#frm-buat-janji").removeClass("d-none");
+                        $("#errorCustomer").removeClass("d-none");
+                    }
+                    else {
+                        // alert(response.message);
+                        $("#page-load").addClass("d-none");
+                        $("#failed-load").removeClass("d-none");
+                    }
+                },
+                error: function (errResponse) {
+                    debugger;
+                }
+            })
+        }
+    })
+
+    $("#customerId").change(function(e){
+        $("#errorCustomer").addClass("d-none");
+    })
+
+    function getDayName(dateInput) {
+        var date = new Date(dateInput);
+        var dayName = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];
+        var day = date.getDay();
+        return dayName[day];
+
+    }
+
+    $("#btnPilihJadwalLain").click(function(e){
+        $("#frm-buat-janji").removeClass("d-none");
+        $("#failed-load").addClass("d-none");
+        $("#customerId").val('');
+        $("#faskesId").val('');
+        $("#tanggalKedatangan").val('');
+        $("#timeArrival").val('');
+        $("#treatment").val('');
+
+    })
+    
+    $("#faskesId").change(function (e) {
+        if($("#faskesId").val()!=""){
+            let tgl = $("#tanggalKedatangan").val();
+            let fasId = $("#faskesId").val();
+            console.log(tgl);
+            console.log(fasId);
+
+            $("#tanggalKedatangan").removeAttr("disabled");
+            $("#timeArrival").removeAttr("disabled");
+            $("#treatment").removeAttr("disabled");
+
+            if (tgl != "" && fasId != "") {
+                $.ajax({
+                    url: '/DoctorProfile/GetTimeById',
+                    data: { id: "@Model.Id", catId: fasId, tgl: tgl },
+                    dataType: 'json',
+                    success: function (response) {
+                        console.log(response);
+                        // debugger;
+                        if (response.length > 0) {
+                            $("#timeArrival").empty();
+                            let tgl = $("#tanggalKedatangan").val();
+                            var nameDay = getDayName(tgl);
+                            let yes = 0;
+
+                            $.each(
+                                response,
+                                function (idx, data) {
+                                    if (nameDay == data.day) {
+                                        $("#timeArrival").append(`<option value="${data.id}">${data.day} , ${data.timeScheduleStart} - ${data.timeScheduleEnd}</option>`);
+                                        yes++;
+                                    }
+
+
+                                }
+                            );
+                            if (yes == 0) {
+                                $("#timeArrival").empty();
+                                $("#timeArrival").append(`<option value="">Tidak ada Jam Praktek</option>`);
+                            }
+                        }
+                        else {
+                            // alert("Variant with Category id = " + catId + "Can not be found");
+                            $("#timeArrival").empty();
+                            $("#timeArrival").append(`<option value="">Tidak ada Jam Praktek</option>`);
+                        }
+
+                    },
+                    error: function (errResponse) {
+                        debugger;
+                    }
+                })
+            }
+
+            $.ajax({
+                url: '/DoctorProfile/GetTreatmentById',
+                data: { id: "@Model.Id", catId: fasId },
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
+                    // debugger;
+                    if (response.length > 0) {
+                        $("#treatment").empty();
+                        $("#treatment").append(`<option value=""></option>`);
+
+                        $.each(
+                            response,
+                            function (idx, data) {
+                                $("#treatment").append(`<option value="${data.id}">${data.name} </option>`);
+                            }
+                        );
+                    }
+                    else {
+                        // alert("Variant with Category id = " + catId + "Can not be found");
+                        $("#treatment").empty();
+                    }
+
+                },
+                error: function (errResponse) {
+                    debugger;
+                }
+            })
+        }
+        else{
+            $("#tanggalKedatangan").attr("disabled");
+            $("#timeArrival").attr("disabled");
+            $("#treatment").attr("disabled");
+        }
+
+
+    })
+
+    $("#tanggalKedatangan").change(function (e) {
+        let tgl = $("#tanggalKedatangan").val();
+        let fasId = $("#faskesId").val();
+        if ($("input[name*='AppointmentDate']").valid()) {
+            console.log("appointment valid")
+            if (tgl != "" && fasId != "") {
+                $.ajax({
+                    url: '/DoctorProfile/GetTimeById',
+                    data: { id: "@Model.Id", catId: fasId, tgl: tgl },
+                    dataType: 'json',
+                    success: function (response) {
+                        console.log(response);
+                        // debugger;
+                        if (response.length > 0) {
+                            $("#timeArrival").empty();
+                            let tgl = $("#tanggalKedatangan").val();
+                            var nameDay = getDayName(tgl);
+                            let yes = 0;
+
+                            $.each(
+                                response,
+                                function (idx, data) {
+                                    if (nameDay == data.day) {
+                                        $("#timeArrival").append(`<option value="${data.id}">${data.day} , ${data.timeScheduleStart} - ${data.timeScheduleEnd}</option>`);
+                                        yes++;
+                                    }
+                                }
+                            );
+                            if (yes == 0) {
+                                $("#timeArrival").empty();
+                                $("#timeArrival").append(`<option value="">Tidak ada Jam Praktek</option>`);
+                            }
+                        }
+                        else {
+                            // alert("Variant with Category id = " + catId + "Can not be found");
+                            $("#timeArrival").empty();
+                            $("#timeArrival").append(`<option value="">Tidak ada Jam Praktek</option>`);
+                        }
+
+                    },
+                    error: function (errResponse) {
+                        debugger;
+                    }
+                })
+            }
+        }
+        else{
+            $("#timeArrival").empty();
+            $("#timeArrival").append(`<option value="">Tidak ada Jam Praktek</option>`);
+        }
+        
+        
+        
+    })
+
+    
+</script>
+
+

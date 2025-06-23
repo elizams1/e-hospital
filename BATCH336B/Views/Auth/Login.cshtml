@@ -1,0 +1,191 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+
+<form id="formLogin" >
+    <div>
+        <p class="text-center h4 text-bold text-success" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Login</p>
+        <label for="email">Email</label>
+        <input required type="email" name="Email" class="form-control form_login mb-3" placeholder="Example@example.co" id="email">
+        <div><ul id="errorCheckLoginEmail"></ul></div>
+        <label for="password">Password</label>
+        <div class="input-group mb-3">
+            <input required id="password" type="password" name="Password" class="form-control form_login" placeholder="Password .." aria-describedby="passBtn">
+            <button class="btn mb-3" onclick="togglePassword()" type="button" id="passBtn"></button>
+        </div>
+        <div><ul id="errorCheckLoginPassword"></ul></div>
+        <div id="alertCekLogin"></div>
+        <center>
+            <button id="btnSubmitLogin" type="submit" class="btn btn-outline-success w-75">LOGIN</button>
+        </center>
+        <br />
+        <div class="text-center">
+            <div>
+                <a asp-action="Index" asp-controller="Auth">Forgot password ?</a>
+            </div>
+            <div>
+                <span>or</span>
+            </div>
+            <span>Don't have an account ?</span><a id="btnDaftar" class="btn text-decoration-underline text-primary"> Register</a>
+        </div>
+
+    </div>
+
+</form>
+
+<script>
+    $("#staticModalLabelE").text("");
+    $("#staticModalLabel").html("@ViewBag.Title");
+
+    $("#formLogin").validate({
+        errorClass: "text-danger my-auto",
+        wrapper: "li",
+        rules: {
+            Email: {
+                "required":true
+            },
+            Password: {
+                "required": true
+            }
+        },
+        messages: {
+            Email: {
+                "required": "Email must be filled in!"
+            },
+            Password: {
+                "required": "Password must be filled in!"
+            }
+        },
+        errorPlacement: function(error, element) {
+            if (element.attr("name") === "Email") {
+                error.appendTo("#errorCheckLoginEmail");
+            } else {
+                error.appendTo("#errorCheckLoginPassword");
+            }
+        }
+    });
+
+    $("#btnSubmitLogin").click(function (e) {
+        e.preventDefault();
+        $("#btnSubmitLogin").addClass("disabled");
+
+        setTimeout(function () {
+            $("#btnSubmitLogin").removeClass("disabled");
+        }, 3500);
+
+        if ($("#formLogin").valid()) {
+            $.ajax({
+                url: "/Auth/Login",
+                type: "post",
+                dataType: "json",
+                data: $("#formLogin").serialize(),
+                beforeSend: () => { },
+                success: function (response) {
+                    // debugger;
+                    if (response.statusCode == 200) {
+                        location.reload();
+                    }
+                    else if (response.statusCode == 204) {
+                        alertLogin('Invalid Email or Password!', 'danger');
+                    }
+                    else if (response.statusCode == 403) {
+                        alertLogin('Data has been blocked', 'danger');
+                    }
+                    else {
+                        alertLogin('Invalid Email or Password!', 'danger');
+                    }
+                },
+                error: function (errResponse) {
+                    debugger;
+                }
+            })
+
+        }
+    });
+
+    $("#passBtn").addClass("fas fa-eye");
+
+    $("#btnDaftar").click(function (event) {
+        $("#staticModalBody").load("/Auth/add/");
+    });
+
+    function togglePassword() {
+        let passwordInput = $("#password");
+
+        if (passwordInput.attr("type") == "password") {
+            passwordInput.attr("type", "text");
+            $("#passBtn").addClass("fa-solid fa-eye-slash");
+            $("#passBtn").removeClass("fas fa-eye");
+        } 
+        else 
+        {
+            passwordInput.attr("type", "password");
+            $("#passBtn").removeClass("fa-solid fa-eye-slash");
+            $("#passBtn").addClass("fas fa-eye");
+        }
+    }
+
+    // $("#formLogin").validate({
+    //     errorClass: "text-danger my-auto",
+    //     errorLabelContainer: "#errorContainer",
+    //     wrapper: "li",
+    //     rules: {
+    //         Name: {
+    //             "required": true
+    //         },
+    //         Email: {
+    //             "required": true,
+    //             "email": true
+    //         },
+    //         Password: {
+    //             "required": true,
+    //             strongPassword: true
+    //         },
+    //         Password2: {
+    //             "required": true,
+    //             validatePassword: true
+    //         },
+    //         Address: {
+    //             "required": true
+    //         }
+    //     },
+    //     messages: {
+    //         Name: {
+    //             "required": "Customer Name is required"
+    //         },
+    //         Email: {
+    //             "required": "Customer Email is required",
+    //             "email": "Harus Mengisi dengan subject email"
+    //         },
+    //         Password: {
+    //             "required": "Customer Password is required"
+    //         },
+    //         Password2: {
+    //             "required": "Customer Re-Password is required"
+    //         },
+    //         Address: {
+    //             "required": "Customer Address is required"
+    //         }
+    //     }
+    // });
+
+    // $("#formLogin").validate({
+    //     errorClass: "text-danger my-auto",
+    //     errorLabelContainer: "#errorPassword",
+    //     wrapper: "li",
+    //     rules: {
+    //         Password: {
+    //             "required": true,
+    //             strongPassword: true
+    //         }
+    //     },
+    //     messages: {
+    //         Password: {
+    //             "required": "Password No Strong!"
+    //         }
+    //     }
+    // });
+</script>

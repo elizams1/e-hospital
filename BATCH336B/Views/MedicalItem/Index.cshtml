@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="card">
+    <div class="card-header bg-success h1 text-white">
+        PRODUK KESEHATAN
+    </div>
+    <div class="card-body">
+        <button class="btn btn-primary" title="Edit" data-bs-toggle="modal" data-bs-target="#staticModal">
+            Cari Obat
+        </button>
+    </div>
+</div>
+
+<script>
+    $(".btn-primary").click(function (event) {
+        $("#staticModalBody").load("/MedicalItem/Search");
+    });
+</script>
+

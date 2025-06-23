@@ -1,0 +1,179 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model VMMProfile?
+@{
+    Layout = "_Layout_E";
+    ViewData["Title"] = "Profile Page";
+}
+<div class="d-flex gap-3">
+    <div class="d-flex flex-column gap-3 w-25">
+        <div class="card border-0">
+            <div class="card-body d-flex flex-column align-items-center">
+                <div class="w-75 d-flex justify-content-end">
+                    <div id="btn-update-photo" type="button" data-id="@Model.Id" data-bs-toggle="modal" data-bs-target="#staticModalE" class="px-2 py-1 bg-success rounded-circle text-white z-index-1 position-absolute ">
+                        <i class="fa-solid fa-pen"></i>
+                    </div>
+                </div>
+                
+                <img class="img-profile mb-3 object-fit-cover rounded-circle" src="/@ViewBag.ImgFolder/@Model.ImagePath" width="180" height="180">
+                <div class="h1"><i class="fa-solid fa-star"></i></div>
+                <p class="m-0">Bronze Member</p>
+                <p class="fst-italic">Since @(Model.CreateOn.ToString("yyyy"))</p>
+            </div>
+        </div>
+        <div class="card border-0">
+            
+            <div class="card-body">
+                <div>
+                    <button id="menuPasien" class="btn fw-bold btn-outline-success cl-temp">Pasien</button>
+                </div>
+                <div>
+                    <button id="menuPembelianObat" class="btn fw-bold cl-temp">Pembelian Obat</button>
+                </div>
+                <div>
+                    <button id="menuRencanaKedatangan" class="btn fw-bold cl-temp">Rencana Kedatangan</button>
+                </div>
+                <div>
+                    <button id="menuRiwayatChatDokter" class="btn fw-bold cl-temp">Riwayat Chat Dokter</button>
+                </div>
+                <div>
+                    <a id="menuRiwayatKedatangan" asp-action="RiwayatKedatangan" asp-controller="HistoryCustomer" class="btn fw-bold cl-temp active">Riwayat Kedatangan</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-75 menu-container-side-bar">
+        <div class="">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white mb-3">
+                <div class="container-fluid">
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1 align gap-2">
+                            <li class="nav-item">
+                                <button type="button" class="py-1 cl-temp profile-menu h5"  id="menu-profile">Profile</button>
+                            </li>
+                            <li class="nav-item">
+                                <button type="button" class="py-1 cl-temp profile-menu h5" id="menu-alamat">Alamat</button>
+                            </li>
+                            <li class="nav-item">
+                                <button type="button" class="py-1 cl-temp profile-menu h5"  id="menu-pembayaran">Pembayaran</button>
+                            </li>
+                            @if(Model.RoleId == 1)
+                            {
+                                <li class="nav-item">
+                                    <button type="button" class="py-1 cl-temp profile-menu h5"  id="menu-role">Role ID 1</button>
+                                </li>
+                            }
+                            else if (Model.RoleId == 2)
+                            {
+                                <li class="nav-item">
+                                    <button type="button" class="py-1 cl-temp profile-menu h5"  id="menu-role">Role ID 2</button>
+                                </li>
+                            }
+                            else if (Model.RoleId == 3)
+                            {
+                                <li class="nav-item">
+                                    <button type="button" class="py-1 cl-temp profile-menu h5"  id="menu-role">Role ID 3</button>
+                                </li>
+                            }
+                            else if (Model.RoleId == 4)
+                            {
+                                <li class="nav-item">
+                                    <button type="button" class="py-1 cl-temp profile-menu h5"  id="menu-role">Role ID 4</button>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="card-body menu-bar-container">
+            
+        </div>
+    </div>
+</div>
+<script>
+    
+
+    $("#bc-active").html("Profile");
+    let profile = {
+        Id:"@Model.Id",
+        Fullname: "@Model.Fullname",
+        Dob: "@Model.Dob",
+        MobilePhone: "@Model.MobilePhone",
+        Email: "@Model.Email",
+        Password: "@Model.Password"
+    }
+    $("#menu-profile").addClass("active");
+    $(".menu-bar-container").load(
+        '/Profile/ProfileMenu',
+        {
+            "data": profile
+        },
+        function (res, stat) {
+            if (stat == "success") {
+                console.log("bener");
+            }
+            else {
+                debugger;
+                console.log("ada yang salah");
+            }
+        }
+    );
+
+    
+    $("#btn-update-photo").click(function (e){
+        let theId = $(this).data("id");
+        $("#staticModalBodyE").load('/Profile/UpdatePhotoProfile/'+theId);
+    })
+
+    $("#menu-profile").click(function (e) {
+        console.log("menu-profile");
+        $(".cl-temp").removeClass("active");
+        $(this).addClass("active");
+
+        $(".menu-bar-container").load(
+            '/Profile/ProfileMenu',
+            {
+                "data": profile
+            },
+            function (res, stat) {
+                if (stat == "success") {
+                    console.log("bener");
+                }
+                else {
+                    debugger;
+                    console.log("ada yang salah");
+                }
+            }
+        );
+    });
+
+    $("#menu-alamat").click(function (e) {
+        console.log("menu-alamat");
+        $(".cl-temp").removeClass("active");
+        $(this).addClass("active");
+        $(".menu-bar-container").load('/Profile/Alamat')
+
+    });
+
+    $("#menu-pembayaran").click(function (e) {
+        console.log("menu-pembayaran");
+        $(".cl-temp").removeClass("active");
+        $(this).addClass("active");
+        $(".menu-bar-container").load('/Profile/Pembayaran')
+    });
+
+    $("#menu-role").click(function (e) {
+        console.log("menu-role");
+        $(".cl-temp").removeClass("active");
+        $(this).addClass("active");
+        $(".menu-bar-container").load(
+            '/Profile/Role',
+            {
+                "id":"@Model.RoleId"
+            }
+        );
+    });
+</script>

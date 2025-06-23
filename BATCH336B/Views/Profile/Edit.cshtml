@@ -1,0 +1,147 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model VMMProfile?;
+
+@{
+    Layout = null;
+
+}
+
+<form id="frm-profile-edit">
+    <div class="card-body">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="hidden" name="ModifiedBy" value="@Context.Session.GetInt32("custId")" />
+        <div class="mb-3">
+            <label class="fs-5 mb-1 mx-1">Nama Lengkap</label>
+            <input type="text" class="border-0 rounded-0 border-bottom border-success form-control" name="Fullname" id="fullnameEdit" value="@Model.Fullname" required>
+        </div>
+        <div class="mb-3">
+            <label class="fs-5 mb-1 mx-1">Tanggal Lahir</label>
+            <input type="date" class="border-0 rounded-0 border-bottom border-success form-control" name="Dob" id="dob" value="@(Model.Dob!=null?(Model.Dob)?.ToString("yyyy-MM-dd"):"-")" max="@DateTime.Now.ToString("yyyy-MM-dd")" required>
+        </div>
+        <div class="mb-3">
+            <label class="fs-5 mb-1 mx-1">Nomor Handphone</label>
+            <input type="tel" class="border-0 rounded-0 border-bottom border-success form-control" name="MobilePhone" id="mobilePhoneEdit" value="@Model.MobilePhone" placeholder="081212341234" required />
+            
+        </div>
+        @* <div>
+            <ul id="errorContainer"></ul>
+        </div> *@
+        <div class="d-flex justify-content-end">
+            <button type="button" class="input-group-text btn border-danger text-danger mx-3" id="btnCancel" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i>  Batal</button>
+            <button type="submit" class="input-group-text btn btn-success" id="btnSubmit"><i class="fa-solid fa-floppy-disk"></i>  Simpan</button>
+            <button class="btn btn-success" type="button" id="btnLoading" disabled>
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                Loading...
+            </button>
+        </div>
+    </div>
+</form>
+<script>
+    $("#staticModalLabelE").html("@ViewBag.Title");
+
+    $("#btnLoading").hide();
+
+    $.validator.addMethod("validPhoneNumber",
+        function (value, el) {
+            return (/^(\+62|62)?[\s-]?0?8[1-9]{1}\d{1}[\s-]?\d{4}[\s-]?\d{2,5}$/.test(value));
+        },
+        "*Nomor handphone tidak valid! Gunakan format 08xx xxxx xxxx"
+    );
+
+    $.validator.addMethod("lettersOnly", function (value, element) {
+        return this.optional(element) || value == value.match(/^[a-zA-Z\s]+$/);
+    }, "*Data hanya berupa alphabet saja!");
+
+    
+    $("#frm-profile-edit").validate({
+        
+        errorClass: "text-danger fst-italic",
+        // errorLabelContainer: "#errorContainer",
+        // wrapper: "li",
+        rules: {
+            MobilePhone: {
+                "maxlength": 14,
+                "validPhoneNumber":true
+            }
+        },
+        messages: {
+            Fullname: {
+                "required":"*Nama Lengkap Wajib Diisi!"
+            },
+            Dob: {
+                "required":"*Tanggal Lahir Wajib Diisi!",
+                "max":"*Masukkan tanggal tidak lebih dari hari ini!"
+            },
+            MobilePhone: {
+                "required": "*Nomor Telepon Wajib Diisi!",
+                "maxlength": "*Nomor Telepon Maximal 13 Karakter"
+            }
+        }
+    })
+
+    $("#mobilePhoneEdit").change(function (e) {
+        let wSpace1 = $("#mobilePhoneEdit").val();
+        let noSpace1 = wSpace1.replace(/[^\d]/g, '');
+        noSpace1 = noSpace1.replace(/^(62)/, '0');
+        // debugger;
+
+        $("#mobilePhoneEdit").val(noSpace1);
+        
+    })
+
+    $("#frm-profile-edit").submit(function (event) {
+        // Disable form submit
+        event.preventDefault();
+
+
+        let wSpace = $("#fullnameEdit").val();
+        let noSpace = wSpace.trim().split(/[\s,\t,\n]+/).join(' ');
+
+        $("#fullnameEdit").val(noSpace);
+
+        
+        
+
+        console.log($("#fullnameEdit").val());
+        // debugger;
+
+        if ($("#frm-profile-edit").valid()) {
+            // alert("form is being submitted");
+
+            // debugger;
+            $.ajax({
+                url: '/Profile/Edit',
+                type: 'post',
+                data: $("#frm-profile-edit").serialize(),
+                dataType: 'json',
+                beforeSend: function () {
+                    // Proses before send data
+                    $("#btnSubmit").hide();
+                    $("#btnLoading").show();
+                },
+                success: function (response) {
+                    // debugger;
+                    // Proses success send data
+                    if (response.statusCode == 200 || response.statusCode == 201) {
+                        location.reload();
+                    }
+                    else {
+                        alert(response.message);
+                    }
+                },
+                error: function (errResponse) {
+                    debugger;
+                }
+
+            })
+        }
+       
+        
+       
+
+    });
+
+    
+</script>

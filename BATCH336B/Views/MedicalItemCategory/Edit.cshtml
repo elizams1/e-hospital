@@ -1,0 +1,73 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model VMMMedicalItemCategory?
+@{
+    Layout = null;
+}
+<div class="card">
+    <div class="card-body">
+        <form id="frmEditMedItemCat" asp-controller="MedicalItemCategory" asp-action="Edit">
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <input type="hidden" name="UpdatedBy" value="1" />
+
+            <div class="input-group mb-3">
+                <label class=" col-3 input-group-text">Nama </label>
+                <input required type="text" name="Name" value="@Model.Name"
+                        class="col-9 form-control" placeholder="Category Name">
+            </div>
+
+            <div>
+                <ul id="errorContainer"></ul>
+            </div>
+
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="input-group-text btn btn-primary" id="btnSubmit"><i class="fa-solid fa-floppy-disk"></i>  Submit</button>
+                @* <button class="btn btn-primary" type="button" id="btnLoading" disabled>
+                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                </button> *@
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+
+    $("#staticModalLabel").html("@ViewBag.Title");
+
+    $("#frmEditMedItemCat").submit(function (event) {
+        //Disable form submit
+        event.preventDefault();
+
+        if ($("#frmEditMedItemCat").valid()) {
+            // alert("form is being submitted");
+
+            $.ajax({
+                url: '/MedicalItemCategory/Edit',
+                type: 'post',
+                data: $("#frmEditMedItemCat").serialize(),
+                dataType: 'json',
+                beforeSend: function () {
+                    //Proses before send data
+                    $("#btnSubmit").hide();
+                    $("#btnLoading").show();
+                },
+                success: function (response) {
+                    debugger;
+                    //Proses success send data
+                    if (response.statusCode == 200 || response.statusCode == 201) {
+                        location.reload();
+                    }
+                    else {
+                        alert(response.message);
+                    }
+                },
+                error: function (errResponse) {
+                    debugger;
+                }
+            })
+        }
+    });
+
+</script>

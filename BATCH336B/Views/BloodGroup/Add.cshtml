@@ -1,0 +1,197 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+
+
+<form id="frm-blood-group">
+    <div class="card-body">
+         <input type="hidden" name="CreateBy" value="@Context.Session.GetInt32("custId")" />
+        <div class="mb-3">
+            <label class=" mb-1 mx-1">Kode <span class="text-danger"> *</span></label>
+            <input type="text" class="border-success form-control" placeholder="Input Kode Golongan Darah..." aria-label="Code" name="Code" id="code" required>
+            <div class="d-none text-danger fst-italic px-2 pb-2" id="errorContainer2"></div>
+        </div>
+        <div class="mb-3">
+            <label class=" mb-1 mx-1">Description</label>
+            <textarea type="text" class="border-success form-control" placeholder="Input Deskripsi Golongan Darah..." aria-label="Description" name="Description" id="description"></textarea>
+        </div>
+        
+        <div class="d-flex justify-content-end">
+            <button type="button" class="input-group-text btn border-danger text-danger mx-3" id="btnCancel" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i>  Batal</button>
+            <button type="submit" class="input-group-text btn btn-success" id="btnSubmit1"><i class="fa-solid fa-floppy-disk"></i>  Tambah</button>
+           
+        </div>
+    </div>
+</form>
+
+<div id="modal-confirm" class="d-none">
+    <div class="card-body d-flex justify-content-center align-items-center">
+        <i class="fa-solid fa-exclamation-triangle float-xxl-start text-danger m-2"></i>
+        <span> Anda akan menambah <span class="text-danger fw-bold" id="the-code">  </span></span>
+    </div>
+    <div class="card-footer d-flex justify-content-end">
+        <button type="button" class="input-group-text btn border-danger text-danger mx-3" id="btnCancel1" ><i class="fa-solid fa-xmark"></i>  Batal</button>
+        <button type="submit" class="input-group-text btn btn-success" id="btnSubmit2"><i class="fa-solid fa-floppy-disk"></i>  Tambah</button>
+        <button class="btn btn-success" type="button" id="btnLoading1" disabled>
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            Loading...
+        </button>
+
+    </div>
+</div>
+    
+<script>
+    $("#staticModalLabelE").html("@ViewBag.Title");
+
+    $("#btnLoading1").hide();
+
+    $("#code").change(function (e) {
+        $("#errorContainer2").addClass("d-none");
+    })
+
+    $.validator.addMethod("noSpacesOnly", function (value, element) {
+        return /\S/.test(value);
+    }, "*Data Tidak Boleh Spasi Semua!");
+
+    
+
+    $("#frm-blood-group").validate({
+        errorClass: "text-danger fst-italic",
+        rules: {
+            Code: {
+                "maxlength": 5,
+                "noSpacesOnly": true
+                
+            }
+        },
+        messages: {
+            Code: {
+                "required": `<p class="text-danger fst-italic px-2 m-0">*Kode Golongan Darah Wajib Diisi!</p>`,
+                "maxlength": "Kode Golongan Darah Maximal 5 Karakter"
+            }
+        }
+    });
+
+    $("#btnCancel1").click(function (e) {
+        $("#frm-blood-group").removeClass("d-none");
+        $("#modal-confirm").addClass("d-none");
+    })
+    
+    $("#btnSubmit1").click(function (e) {
+        e.preventDefault();
+        $("#errorContainer2").addClass("d-none");
+        a = $("#code").val();
+        code = `${encodeURIComponent(a)}`
+        if ($("#frm-blood-group").valid()){
+            $.ajax({
+                url: '/BloodGroup/CheckCode',
+                type: 'post',
+                data: { "code": code },
+                dataType: 'json',
+                beforeSend: () => {
+                    // Proses before send data
+                    $("#btnSubmit2").hide();
+                    $("#btnLoading1").show();
+                },
+                success: function (response) {
+                    // debugger;
+                    if (response.statusCode == 200) {
+
+                        console.log(code);
+                        console.log("code  ada");
+                        
+                        $("#errorContainer2").text("Golongan Darah Sudah ADA!");
+                        $("#errorContainer2").removeClass("d-none");
+
+                        
+                        return true;
+                    }
+                    else{
+                        $("#frm-blood-group").addClass("d-none");
+                        $("#modal-confirm").removeClass("d-none");
+                        $("#the-code").text("golongan darah dengan Kode " + $("#code").val());
+                        $("#btnSubmit2").show();
+                        $("#btnLoading1").hide();
+                    }
+
+                }
+            })
+        }
+    })
+
+
+
+    $("#btnSubmit2").click(function (event) {
+        // Disable form submit
+        event.preventDefault();
+        
+
+        a = $("#code").val();
+        code = `${ encodeURIComponent(a) }`
+        if ($("#frm-blood-group").valid()) {
+            // alert("form is being submitted");
+            $.ajax({
+                url:'/BloodGroup/CheckCode',
+                type: 'post',
+                data: {"code" : code},
+                dataType: 'json',
+                beforeSend: () => {
+                    // Proses before send data
+                    $("#btnSubmit2").hide();
+                    $("#btnLoading1").show();
+                },
+                success: function (response) {
+                    // debugger;
+                    if (response.statusCode == 200) {
+                        
+                        console.log(code);
+                        console.log("code  ada");
+                        $("#errorContainer2").text("Golongan Darah Sudah ADA!");
+                        $("#errorContainer2").removeClass("d-none");
+
+                        $("#btnSubmit2").show();
+                        $("#btnLoading1").hide();
+                        return true;
+                    }
+                    else{
+                        // debugger;
+                        // event.preventDefault();
+                        $.ajax({
+                            url: '/BloodGroup/Add',
+                            type: 'post',
+                            data: $("#frm-blood-group").serialize(),
+                            dataType: 'json',
+                            beforeSend: function () {
+                                // Proses before send data
+                                $("#btnSubmit2").hide();
+                                $("#btnLoading1").show();
+                            },
+                            success: function (response) {
+                                // debugger;
+                                // Proses success send data
+                                if (response.statusCode == 200 || response.statusCode == 201) {
+                                    console.log(code);
+                                    location.replace('/BloodGroup/Index');
+                                }
+                                else {
+                                    alert(response.message);
+                                }
+                            },
+                            error: function (errResponse) {
+                                debugger;
+                            }
+
+                        })
+                    }
+                    
+                }
+            })
+
+            
+        }
+
+    });
+</script>

@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model VMMCourier
+@{
+    Layout = null;
+}
+<div class="=card">
+    <div class="card-header">
+        <i class="fas fa-exclamation-triangle float-xxl-start text-danger"></i>
+        <span>Anda akan Menghapus Courier dengan Nama = @Model.Nama ?</span>
+    </div>
+    <div class="=card-footer">
+        <button class="btn btn-danger" id="btnConfirm">Ya</button>
+        <button class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Tidak</button>
+    </div>
+</div>
+
+
+
+<script>
+    $("#staticModalLabel").html("@ViewBag.Title");
+
+    $("#btnConfirm").click(() => {
+        alert("Sukses");
+        $.ajax({
+            url: '/Courier/Delete',
+            type: 'post',
+            data: { "id": @Model.Id, "userId": 3 },
+            dataType: 'json',
+            beforeSend: function () {
+            },
+            success: function (response) {
+                if (response.statusCode == 200) {
+                    location.reload();
+                }
+                else {
+                    alert(response.message);
+                }
+            },
+            error: function (errResponse) {
+                debugger;
+                alert("Delete Courier GAGAL !");
+            }
+        });
+    });
+</script>

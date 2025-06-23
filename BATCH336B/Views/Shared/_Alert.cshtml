@@ -1,0 +1,85 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    //Get Alert Message from Session
+    ViewBag.InfoMsg = Context.Session.GetString("infoMsg") ?? "";
+    ViewBag.WarningMsg = Context.Session.GetString("warningMsg") ?? "";
+    ViewBag.ErrorMsg = Context.Session.GetString("errorMsg") ?? "";
+    ViewBag.SuccessMsg = Context.Session.GetString("successMsg") ?? "";
+
+    //Resert Session
+    Context.Session.SetString("infoMsg", "");
+    Context.Session.SetString("warningMsg", "");
+    Context.Session.SetString("errorMsg", "");
+    Context.Session.SetString("successMsg", "");
+}
+
+<div id="alertPlaceholder"></div>
+
+<script>
+    function alert(message, color) {
+        $("#alertPlaceholder").show();
+        $("#alertPlaceholder").append(`
+            <div class="alert alert-${color} alert-dismissible fade show" role="alert">
+                <i class="fa-solid fa-circle-info text-${color}"></i>
+                <span>${message} </span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `);
+        setTimeout(() => { 
+            $("#alertPlaceholder").slideUp("slow");
+            $(".alert").addClass("d-none");
+        }, 5000);
+    }
+    function alertRegist(message, color) {
+        $("#alertCekEmail").show();
+        $("#alertCekEmail").append(`
+            <div class="alert alert-${color} alert-dismissible fade show" role="alert">
+                <i class="fa-solid fa-circle-info text-${color}"></i>
+                <span>${message} </span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `);
+        setTimeout(() => {
+            $("#alertCekEmail").slideUp("slow");
+            $(".alert").addClass("d-none");
+        }, 3000);
+    }
+    function alertOtp(message, color) {
+        $("#alertCekOtp").show();
+        $("#alertCekOtp").append(`
+            <div class="alert alert-${color} alert-dismissible fade show" role="alert">
+                <i class="fa-solid fa-circle-info text-${color}"></i>
+                <span>${message} </span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `);
+        setTimeout(() => {
+            $("#alertCekOtp").slideUp("slow");
+            $(".alert").addClass("d-none");
+        }, 3000);
+    }
+    function alertLogin(message, color) {
+        $("#alertCekLogin").show();
+        $("#alertCekLogin").append(`
+            <div class="alert alert-${color} alert-dismissible fade show" role="alert">
+                <i class="fa-solid fa-circle-info text-${color}"></i>
+                <span>${message} </span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `);
+        setTimeout(() => {
+            $("#alertCekLogin").slideUp("slow");
+            $(".alert").addClass("d-none");
+        }, 3000);
+    }
+
+    $(document).ready(function () {
+        if ("@ViewBag.InfoMsg" != "") alert("@Html.Raw(ViewBag.InfoMsg)", "info");
+        if ("@ViewBag.WarningMsg" != "") alert("@Html.Raw(ViewBag.WarningMsg)", "warning");
+        if ("@ViewBag.ErrorMsg" != "") alert("@Html.Raw(ViewBag.ErrorMsg)", "danger");
+        if ("@ViewBag.SuccessMsg" != "") alert("@Html.Raw(ViewBag.SuccessMsg)", "success");
+    });
+    
+</script>

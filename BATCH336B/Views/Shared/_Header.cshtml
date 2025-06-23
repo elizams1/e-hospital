@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+        <div class="container-fluid mx-auto">
+            <a class="navbar-brand ms-5" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/LogoKesehatan.png" style="height: 5rem;" class="rounded img-fluid fit-cover" /></a>
+            <div class="input-group w-50">
+                <input type="text" class="form-control" placeholder="Search Doctor or Faskes" aria-describedby="iSearch" />
+                <button type="submit" class="btn input-group-text btn-success" id="iSearch">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="row @(Context.Session.GetInt32("custId") != null ? "d-none" : "")">
+                <a data-bs-toggle="modal" data-bs-target="#staticModal" id="btnRegist" class="btn btn-success w-100 col me-3">Daftar</a>
+                <a id="btnLogin" class="btn btn-outline-success w-100 col me-5" data-bs-toggle="modal" data-bs-target="#staticModal">Masuk</a>
+            </div>
+            <div class="row p-2 text-center  dropdown @(Context.Session.GetInt32("custId") != null ? "" : "d-none")">
+                <button type="submit" class="btn dropdown-toggle text-bold textcolorhome text-decoration-none" data-bs-toggle="dropdown" id="userName">@Context.Session.GetString("custFullname")
+                    <img class="img-profile rounded-circle"
+                         src="~/images/ProfileVector.png" style="height: 2rem; width: 3rem;">
+</button>
+                
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li class="p-1 text-center"><a class="btn btn-outline-success w-100" asp-controller="Auth" asp-action="Logout">Logout</a></li>
+                    </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+<script>
+    $("#btnRegist").click(function (event) {
+        $("#staticModalBody").load("/Auth/add/");
+    });
+    $("#btnLogin").click(function (event) {
+        $("#staticModalBody").load("/Auth/login/");
+    });
+</script>

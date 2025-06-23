@@ -1,0 +1,132 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Pagination<VMMMedicalItemSegmentation>?
+@{
+    ViewData["Title"] = "Medical Item Segmentation Page";
+}
+
+<div class="card">
+    <div class="card-header bg-success h1 text-white">
+        KATEGORI PRODUK KESEHATAN
+    </div>
+    <div class="card-body">
+        <div class="d-flex justify-content-between mb-3">
+            <form id="frmFilter" asp-controller="MedicalItemSegmentation" asp-action="Index" class="mb-3 w-50">
+                <div class="input-group">
+                    <input id="filter" name="filter" type="text" class="form-control"
+                           placeholder="Cari kategori produk kesehatan"
+                           aria-describedby="iSearch"
+                           value="@ViewBag.Filter">
+                    <button type="submit" class="btn btn-secondary" id="iSearch"><i class="fa-solid fa-search"></i></button>
+                </div>
+            </form>
+            <button type="button" class="btn btn-success" id="btnAdd"
+                data-bs-toggle="modal" data-bs-target="#staticModal">
+                TAMBAH
+            </button>
+        </div>
+
+        <div>
+            <table class="table">
+                <thead class="align-middle text-center">
+                    <tr>
+                        <th>NAMA</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody class="align-middle text-center">
+                    @if (Model != null)
+                    {
+                        @foreach (VMMMedicalItemSegmentation data in Model)
+                        {
+                            <tr>
+                                <td>@data.Name</td>
+
+                                <td class="text-center align-middle">
+                                    <button class="btn btn-primary" title="Edit" data-bs-toggle="modal" data-bs-target="#staticModal"
+                                        data-id="@data.Id">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </button>
+
+                                    <button class="btn btn-danger" title="Delete" data-bs-toggle="modal" data-bs-target="#staticModal"
+                                        data-id="@data.Id">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    } else
+                    {
+                        <tr>
+                            <td colspan="2" class="text-center"> Data yang dicari tidak ditemukan. </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="card-footer d-flex justify-content-between">
+        <div class="input-group w-25">
+            <label class="input-group-text">Data Size</label>
+            <select class="form-select" id="currPageSize">
+                @for (int i = 5; i <= 20; i += 5)
+                {
+                    if (ViewBag.PageSize == i)
+                    {
+                        <option value="@i" selected>@i</option>
+                    }
+                    else
+                    {
+                        <option value="@i">@i</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="input-group w-25">
+            <a class="btn btn-secondary col-2 @(Model.PageIndex <= 1 ? "disabled": "")" title="Previous Page"
+               asp-controller="MedicalItemSegmentation" asp-action="Index"
+               asp-route-filter="@ViewBag.Filter"
+               asp-route-currPageSize="@ViewBag.PageSize"
+               asp-route-pageNumber="@(Model.PageIndex <= 1 ? Model.PageIndex : Model.PageIndex-1)"
+               asp-route-orderBy="@ViewBag.OrderBy"><i class="fas fa-chevron-left"></i></a>
+
+            <div class="input-group-text text-center col-6">
+                <span class="w-100">
+                    @Model.PageIndex of @Model.TotalPages
+                </span>
+            </div>
+            <a class="btn btn-secondary col-2 @(Model.PageIndex >= Model.TotalPages ? "disabled": "")" title="Next Page"
+               asp-controller="MedicalItemSegmentation" asp-action="Index" 
+               asp-route-filter="@ViewBag.Filter"
+               asp-route-currPageSize="@ViewBag.PageSize"
+               asp-route-pageNumber="@(Model.PageIndex >= Model.TotalPages ? Model.PageIndex : Model.PageIndex+1)"
+               asp-route-orderBy="@ViewBag.OrderBy"><i class="fas fa-chevron-right"></i></a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $("#btnAdd").click(function (event) {
+        // debugger;
+        $("#staticModalBody").load("/MedicalItemSegmentation/Add");
+    });
+
+    $(".btn-primary").click(function (e) {
+        let catId = $(this).data("id");
+        $("#staticModalBody").load("/MedicalItemSegmentation/Edit/" + catId);
+    });
+
+    $(".btn-danger").click(function (e) {
+        let catId = $(this).data("id");
+        $("#staticModalBody").load("/MedicalItemSegmentation/Delete/" + catId);
+    })
+
+    $("#currPageSize").change(function () {
+        location.replace("/MedicalItemSegmentation/Index?filter=@ViewBag.Filter&currPageSize=" + $(this).val());
+    })
+</script>
+
