@@ -9,253 +9,253 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BATCH336B
 build_property.RootNamespace = BATCH336B
-build_property.ProjectDir = D:\console apps c#\BATCH336B - Copy\BATCH336B\BATCH336B\
+build_property.ProjectDir = D:\EHos\BATCH336B\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\console apps c#\BATCH336B - Copy\BATCH336B\BATCH336B
+build_property.MSBuildProjectDirectory = D:\EHos\BATCH336B
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 6.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Auth/Add.cshtml]
+[D:/EHos/BATCH336B/Views/Auth/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Auth/Index.cshtml]
+[D:/EHos/BATCH336B/Views/Auth/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Auth/Login.cshtml]
+[D:/EHos/BATCH336B/Views/Auth/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/BloodGroup/Add.cshtml]
+[D:/EHos/BATCH336B/Views/BloodGroup/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2RHcm91cFxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/BloodGroup/Delete.cshtml]
+[D:/EHos/BATCH336B/Views/BloodGroup/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2RHcm91cFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/BloodGroup/Edit.cshtml]
+[D:/EHos/BATCH336B/Views/BloodGroup/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2RHcm91cFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/BloodGroup/Index.cshtml]
+[D:/EHos/BATCH336B/Views/BloodGroup/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2RHcm91cFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Courier/Add.cshtml]
+[D:/EHos/BATCH336B/Views/Courier/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cmllclxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Courier/Delete.cshtml]
+[D:/EHos/BATCH336B/Views/Courier/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cmllclxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Courier/Edit.cshtml]
+[D:/EHos/BATCH336B/Views/Courier/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cmllclxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Courier/Index.cshtml]
+[D:/EHos/BATCH336B/Views/Courier/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cmllclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/DoctorProfile/BuatJanji.cshtml]
+[D:/EHos/BATCH336B/Views/DoctorProfile/BuatJanji.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yUHJvZmlsZVxCdWF0SmFuamkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/DoctorProfile/Index.cshtml]
+[D:/EHos/BATCH336B/Views/DoctorProfile/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yUHJvZmlsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/HistoryCustomer/RiwayatKedatangan.cshtml]
+[D:/EHos/BATCH336B/Views/HistoryCustomer/RiwayatKedatangan.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yeUN1c3RvbWVyXFJpd2F5YXRLZWRhdGFuZ2FuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/HistoryCustomer/test.cshtml]
+[D:/EHos/BATCH336B/Views/HistoryCustomer/test.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yeUN1c3RvbWVyXHRlc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/HistoryCustomer/ValidasiCetakResep.cshtml]
+[D:/EHos/BATCH336B/Views/HistoryCustomer/ValidasiCetakResep.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yeUN1c3RvbWVyXFZhbGlkYXNpQ2V0YWtSZXNlcC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Home/Add.cshtml]
+[D:/EHos/BATCH336B/Views/Home/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Home/Index.cshtml]
+[D:/EHos/BATCH336B/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Home/Privacy.cshtml]
+[D:/EHos/BATCH336B/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/MedicalItemCategory/Add.cshtml]
+[D:/EHos/BATCH336B/Views/MedicalItemCategory/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEl0ZW1DYXRlZ29yeVxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/MedicalItemCategory/Delete.cshtml]
+[D:/EHos/BATCH336B/Views/MedicalItemCategory/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEl0ZW1DYXRlZ29yeVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/MedicalItemCategory/Edit.cshtml]
+[D:/EHos/BATCH336B/Views/MedicalItemCategory/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEl0ZW1DYXRlZ29yeVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/MedicalItemCategory/Index.cshtml]
+[D:/EHos/BATCH336B/Views/MedicalItemCategory/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEl0ZW1DYXRlZ29yeVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/MedicalItemSegmentation/Add.cshtml]
+[D:/EHos/BATCH336B/Views/MedicalItemSegmentation/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEl0ZW1TZWdtZW50YXRpb25cQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/MedicalItemSegmentation/Delete.cshtml]
+[D:/EHos/BATCH336B/Views/MedicalItemSegmentation/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEl0ZW1TZWdtZW50YXRpb25cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/MedicalItemSegmentation/Edit.cshtml]
+[D:/EHos/BATCH336B/Views/MedicalItemSegmentation/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEl0ZW1TZWdtZW50YXRpb25cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/MedicalItemSegmentation/Index.cshtml]
+[D:/EHos/BATCH336B/Views/MedicalItemSegmentation/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEl0ZW1TZWdtZW50YXRpb25cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/MedicalItem/Details.cshtml]
+[D:/EHos/BATCH336B/Views/MedicalItem/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEl0ZW1cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/MedicalItem/FilteredItem.cshtml]
+[D:/EHos/BATCH336B/Views/MedicalItem/FilteredItem.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEl0ZW1cRmlsdGVyZWRJdGVtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/MedicalItem/Index.cshtml]
+[D:/EHos/BATCH336B/Views/MedicalItem/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEl0ZW1cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/MedicalItem/Search.cshtml]
+[D:/EHos/BATCH336B/Views/MedicalItem/Search.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEl0ZW1cU2VhcmNoLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Profile/Alamat.cshtml]
+[D:/EHos/BATCH336B/Views/Profile/Alamat.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxBbGFtYXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Profile/Edit.cshtml]
+[D:/EHos/BATCH336B/Views/Profile/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Profile/Index.cshtml]
+[D:/EHos/BATCH336B/Views/Profile/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Profile/Pembayaran.cshtml]
+[D:/EHos/BATCH336B/Views/Profile/Pembayaran.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxQZW1iYXlhcmFuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Profile/ProfileMenu.cshtml]
+[D:/EHos/BATCH336B/Views/Profile/ProfileMenu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxQcm9maWxlTWVudS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Profile/Role.cshtml]
+[D:/EHos/BATCH336B/Views/Profile/Role.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxSb2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Profile/UpdateEmail.cshtml]
+[D:/EHos/BATCH336B/Views/Profile/UpdateEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxVcGRhdGVFbWFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Profile/UpdatePassword.cshtml]
+[D:/EHos/BATCH336B/Views/Profile/UpdatePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxVcGRhdGVQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Profile/UpdatePhotoProfile.cshtml]
+[D:/EHos/BATCH336B/Views/Profile/UpdatePhotoProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxVcGRhdGVQaG90b1Byb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/Error.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/_Alert.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/_Alert.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BbGVydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/_Footer.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/_Footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/_Footer_E.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/_Footer_E.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXJfRS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/_Footer_S.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/_Footer_S.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXJfUy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/_Header.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/_Header.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/_Header_E.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/_Header_E.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXJfRS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/_Header_S.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/_Header_S.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXJfUy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/_LayoutModal.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/_LayoutModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRNb2RhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/_Layout_S.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/_Layout_S.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRfUy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/_Modal.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/_Modal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Nb2RhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/_Modal_E.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/_Modal_E.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Nb2RhbF9FLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/_Modal_S.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/_Modal_S.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Nb2RhbF9TLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/_Modal_W.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/_Modal_W.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Nb2RhbF9XLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/ViewRenderer/CetakPdf.cshtml]
+[D:/EHos/BATCH336B/Views/ViewRenderer/CetakPdf.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld1JlbmRlcmVyXENldGFrUGRmLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/_ViewImports.cshtml]
+[D:/EHos/BATCH336B/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/_ViewStart.cshtml]
+[D:/EHos/BATCH336B/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/_Layout.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ylwjz7yff0
 
-[D:/console apps c\#/BATCH336B - Copy/BATCH336B/BATCH336B/Views/Shared/_Layout_E.cshtml]
+[D:/EHos/BATCH336B/Views/Shared/_Layout_E.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRfRS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-g7f3sn1sqt
