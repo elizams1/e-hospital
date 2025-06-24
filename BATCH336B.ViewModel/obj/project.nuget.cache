@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ybuGQJMun7kd488kVwbojumfQIE7MtJHa3zBb4WfM57DzKvfd9YJyNVvq28mZeyeGDW5sW8VPJhKq2zIQcCaHA==",
+  "dgSpecHash": "Q+WJyAqlHow=",
   "success": true,
-  "projectFilePath": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B.ViewModel\\BATCH336B.ViewModel.csproj",
+  "projectFilePath": "D:\\EHos\\BATCH336B.ViewModel\\BATCH336B.ViewModel.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",

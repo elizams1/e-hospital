@@ -18,3 +18,23 @@ D:\console apps c#\BATCH336B\BATCH336B\BATCH336B.ViewModel\obj\Debug\net6.0\refi
 D:\console apps c#\BATCH336B\BATCH336B\BATCH336B.ViewModel\obj\Debug\net6.0\BATCH336B.ViewModel.pdb
 D:\console apps c#\BATCH336B\BATCH336B\BATCH336B.ViewModel\obj\Debug\net6.0\BATCH336B.ViewModel.genruntimeconfig.cache
 D:\console apps c#\BATCH336B\BATCH336B\BATCH336B.ViewModel\obj\Debug\net6.0\ref\BATCH336B.ViewModel.dll
+D:\EHos\BATCH336B.ViewModel\bin\Debug\net6.0\BATCH336B.ViewModel.exe
+D:\EHos\BATCH336B.ViewModel\bin\Debug\net6.0\BATCH336B.ViewModel.deps.json
+D:\EHos\BATCH336B.ViewModel\bin\Debug\net6.0\BATCH336B.ViewModel.runtimeconfig.json
+D:\EHos\BATCH336B.ViewModel\bin\Debug\net6.0\BATCH336B.ViewModel.dll
+D:\EHos\BATCH336B.ViewModel\bin\Debug\net6.0\BATCH336B.ViewModel.pdb
+D:\EHos\BATCH336B.ViewModel\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Features.dll
+D:\EHos\BATCH336B.ViewModel\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+D:\EHos\BATCH336B.ViewModel\bin\Debug\net6.0\System.IO.Pipelines.dll
+D:\EHos\BATCH336B.ViewModel\obj\Debug\net6.0\BATCH336B.ViewModel.csproj.AssemblyReference.cache
+D:\EHos\BATCH336B.ViewModel\obj\Debug\net6.0\BATCH336B.ViewModel.GeneratedMSBuildEditorConfig.editorconfig
+D:\EHos\BATCH336B.ViewModel\obj\Debug\net6.0\BATCH336B.ViewModel.AssemblyInfoInputs.cache
+D:\EHos\BATCH336B.ViewModel\obj\Debug\net6.0\BATCH336B.ViewModel.AssemblyInfo.cs
+D:\EHos\BATCH336B.ViewModel\obj\Debug\net6.0\BATCH336B.ViewModel.csproj.CoreCompileInputs.cache
+D:\EHos\BATCH336B.ViewModel\obj\Debug\net6.0\BATCH336B.ViewModel.sourcelink.json
+D:\EHos\BATCH336B.ViewModel\obj\Debug\net6.0\BATCH336.C5933EEC.Up2Date
+D:\EHos\BATCH336B.ViewModel\obj\Debug\net6.0\BATCH336B.ViewModel.dll
+D:\EHos\BATCH336B.ViewModel\obj\Debug\net6.0\refint\BATCH336B.ViewModel.dll
+D:\EHos\BATCH336B.ViewModel\obj\Debug\net6.0\BATCH336B.ViewModel.pdb
+D:\EHos\BATCH336B.ViewModel\obj\Debug\net6.0\BATCH336B.ViewModel.genruntimeconfig.cache
+D:\EHos\BATCH336B.ViewModel\obj\Debug\net6.0\ref\BATCH336B.ViewModel.dll

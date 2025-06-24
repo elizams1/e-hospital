@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "N1W+CP2/uC0N1tgu3j+ULQlC7sXW+kIkk/T1Io6jgrDDoeQrxEXXoG/TdEsb1sy2svntZ2lbrVWBt/URjSlXsQ==",
+  "dgSpecHash": "SoAlX0mQUcw=",
   "success": true,
-  "projectFilePath": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B.DataModel\\BATCH336B.DataModel.csproj",
+  "projectFilePath": "D:\\EHos\\BATCH336B.DataModel\\BATCH336B.DataModel.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

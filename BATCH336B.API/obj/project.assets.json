@@ -7018,19 +7018,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HP\\.nuget\\packages\\": {}
+    "C:\\Users\\HP\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B.API\\BATCH336B.API.csproj",
+      "projectUniqueName": "D:\\EHos\\BATCH336B.API\\BATCH336B.API.csproj",
       "projectName": "BATCH336B.API",
-      "projectPath": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B.API\\BATCH336B.API.csproj",
+      "projectPath": "D:\\EHos\\BATCH336B.API\\BATCH336B.API.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B.API\\obj\\",
+      "outputPath": "D:\\EHos\\BATCH336B.API\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7044,14 +7049,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B.DataAccess\\BATCH336B.DataAccess.csproj": {
-              "projectPath": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B.DataAccess\\BATCH336B.DataAccess.csproj"
+            "D:\\EHos\\BATCH336B.DataAccess\\BATCH336B.DataAccess.csproj": {
+              "projectPath": "D:\\EHos\\BATCH336B.DataAccess\\BATCH336B.DataAccess.csproj"
             },
-            "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B.DataModel\\BATCH336B.DataModel.csproj": {
-              "projectPath": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B.DataModel\\BATCH336B.DataModel.csproj"
+            "D:\\EHos\\BATCH336B.DataModel\\BATCH336B.DataModel.csproj": {
+              "projectPath": "D:\\EHos\\BATCH336B.DataModel\\BATCH336B.DataModel.csproj"
             },
-            "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B.ViewModel\\BATCH336B.ViewModel.csproj": {
-              "projectPath": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B.ViewModel\\BATCH336B.ViewModel.csproj"
+            "D:\\EHos\\BATCH336B.ViewModel\\BATCH336B.ViewModel.csproj": {
+              "projectPath": "D:\\EHos\\BATCH336B.ViewModel\\BATCH336B.ViewModel.csproj"
             }
           }
         }
@@ -7060,7 +7065,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net6.0": {
@@ -7108,7 +7119,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

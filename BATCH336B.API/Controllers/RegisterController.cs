@@ -37,7 +37,7 @@ namespace BATCH336B.API.Controllers
                 var email = new MimeMessage();
 
                 //Dikirim dari email
-                email.From.Add(MailboxAddress.Parse("wendyfirdiansyah86@gmail.com"));
+                email.From.Add(MailboxAddress.Parse("elizamaharani@gmail.com"));
                 //Dikirim ke ?
                 email.To.Add(MailboxAddress.Parse(target));
                 //Isi Email
@@ -53,7 +53,7 @@ namespace BATCH336B.API.Controllers
                 // Simple Mail Transfer Protocol
                 using var smtp = new SmtpClient();
                 smtp.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                smtp.Authenticate("wendyfirdiansyah86@gmail.com", "xrlu jizk vhbh kqpo");
+                smtp.Authenticate("elizamaharani@gmail.com", "xrlu jizk vhbh kqpo");
                 smtp.Send(email);
                 smtp.Disconnect(true);
 

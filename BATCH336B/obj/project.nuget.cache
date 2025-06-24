@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qK0BInWA84/uw+iYf8OMqnAGYEommOlvAkivut9ad8giVN05ZV9LaHi0Xqk3JIQu9xoWRRFD91yj7UbpVir+OA==",
+  "dgSpecHash": "hG2dYdB8LBQ=",
   "success": true,
-  "projectFilePath": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B\\BATCH336B.csproj",
+  "projectFilePath": "D:\\EHos\\BATCH336B\\BATCH336B.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\dinktopdf\\1.0.8\\dinktopdf.1.0.8.nupkg.sha512",

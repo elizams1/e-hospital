@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n04f7wcq7577aSajOKwQTVsVSwbiFVZx+xXGcVYGpl5tvxJZDFo/hYxwFw74KGugWUdPsi6UVm1xNmBReN/EcA==",
+  "dgSpecHash": "LeE8ZRaSAPQ=",
   "success": true,
-  "projectFilePath": "D:\\console apps c#\\BATCH336B\\BATCH336B\\BATCH336B.DataAccess\\BATCH336B.DataAccess.csproj",
+  "projectFilePath": "D:\\EHos\\BATCH336B.DataAccess\\BATCH336B.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\mailkit\\4.3.0\\mailkit.4.3.0.nupkg.sha512",

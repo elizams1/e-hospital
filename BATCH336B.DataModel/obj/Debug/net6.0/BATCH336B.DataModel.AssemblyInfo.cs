@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BATCH336B.DataModel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9549fd21188b859e9c48e0c1df327626d000781")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3badf5686e258e4603d60d2fe2a6fb7fb937267e")]
 [assembly: System.Reflection.AssemblyProductAttribute("BATCH336B.DataModel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BATCH336B.DataModel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
