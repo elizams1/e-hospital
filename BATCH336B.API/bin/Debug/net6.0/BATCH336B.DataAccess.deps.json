@@ -563,7 +563,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.26"
         },
         "runtime": {
-          "BATCH336B.DataModel.dll": {}
+          "BATCH336B.DataModel.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "BATCH336B.ViewModel/1.0.0": {
@@ -571,7 +574,10 @@
           "Microsoft.AspNetCore.Http.Features": "5.0.17"
         },
         "runtime": {
-          "BATCH336B.ViewModel.dll": {}
+          "BATCH336B.ViewModel.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
