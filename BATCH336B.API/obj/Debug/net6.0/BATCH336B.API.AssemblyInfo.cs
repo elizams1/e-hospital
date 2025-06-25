@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BATCH336B.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3badf5686e258e4603d60d2fe2a6fb7fb937267e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ebeaefb601a11cfd91662da761925ba6b880e1a")]
 [assembly: System.Reflection.AssemblyProductAttribute("BATCH336B.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BATCH336B.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
